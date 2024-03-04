@@ -7,6 +7,12 @@ public class Room {
     private Room west;
     private Room south;
 
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+
     public String getName() {
         return name;
     }
