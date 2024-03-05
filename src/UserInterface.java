@@ -21,7 +21,7 @@ public class UserInterface {
         boolean loop = true;
 
         while (loop) {
-            System.out.print("Enter your command: ");
+            System.out.print("> ");
             String userInput = scanner.nextLine();
             loop = adventure.move(userInput);
         }
