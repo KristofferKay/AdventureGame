@@ -68,7 +68,7 @@ public class Adventure {
                         currentRoom = currentRoom.getNorth();
                         currentRoomPrint();
                     } else {
-                        System.out.println("You cannot go there");
+                        noRoomMsg();
                     } break;
                 case "go south":
                     System.out.println("Going south");
@@ -76,7 +76,7 @@ public class Adventure {
                         currentRoom = currentRoom.getSouth();
                         currentRoomPrint();
                     } else {
-                        System.out.println("You cannot go there");
+                        noRoomMsg();
                     } break;
                 case "go west":
                     System.out.println("Going west");
@@ -84,7 +84,7 @@ public class Adventure {
                         currentRoom = currentRoom.getWest();
                         currentRoomPrint();
                     } else {
-                        System.out.println("You cannot go there");
+                        noRoomMsg();
                     } break;
                 case "go east":
                     System.out.println("Going east");
@@ -92,7 +92,7 @@ public class Adventure {
                         currentRoom = currentRoom.getEast();
                         currentRoomPrint();
                     } else {
-                        System.out.println("You cannot go there");
+                        noRoomMsg();
                     } break;
                 case "look":
                     System.out.println("Looking around..");
@@ -107,5 +107,9 @@ public class Adventure {
 
     public void currentRoomPrint() {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+    }
+
+    public void noRoomMsg() {
+        System.out.println("You cannot go there");
     }
 }
