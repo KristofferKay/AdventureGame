@@ -154,6 +154,7 @@ public class Adventure {
                 "* go north/south/east/west - Move to room in given direction \n" +
                 "* exit - Exit out of the game \n" +
                 "* look - Look around your current room\n" +
-                "* help - Get a list of commands");
+                "* help - Get a list of commands\n" +
+                "\033[1m**********************************\033[0m");
     }
 }
