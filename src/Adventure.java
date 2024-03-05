@@ -94,19 +94,21 @@ public class Adventure {
                     } else {
                         noRoomMsg();
                     } break;
-                case "look":
-                    System.out.println("Looking around..");
-                    currentRoomPrint();
-                    break;
-                case "exit":
-                    System.out.println("Exiting game, thanks for playing..");
-                    break;
 
             } return true;
         }
 
     public void currentRoomPrint() {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+    }
+
+    public void exit(){
+        System.out.println("Exiting game, thanks for playing..");
+    }
+
+    public void look(){
+        System.out.println("Looking around..");
+        currentRoomPrint();
     }
 
     public void noRoomMsg() {
