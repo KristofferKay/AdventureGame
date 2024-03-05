@@ -12,10 +12,10 @@ public class Adventure {
     private Room r9;
 
     public Adventure() {
-        r1 = new Room("Room 1", "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south.");
+        r1 = new Room("Room 1", "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ");
         r2 = new Room("Room 2", "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door in the east" +
                 "and through a metal door in the west.");
-        r3 = new Room("Room 3", "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows." +
+        r3 = new Room("Room 3", "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.");
         r4 = new Room("Room 4", "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
                 "Grab it and continue either throw a metal door in the north, or through a passage in the south.");
@@ -95,7 +95,7 @@ public class Adventure {
     public void goNorth(){
         if (currentRoom.getNorth() != null) {
             currentRoom = currentRoom.getNorth();
-            System.out.println("Going north");
+            System.out.println("Going north...");
             currentRoomPrint();
         } else {
             noRoomMsg();
@@ -104,7 +104,7 @@ public class Adventure {
     public void goSouth(){
         if (currentRoom.getSouth() != null) {
             currentRoom = currentRoom.getSouth();
-            System.out.println("Going south");
+            System.out.println("Going south...");
 
             currentRoomPrint();
         } else {
@@ -115,7 +115,7 @@ public class Adventure {
     public void goEast(){
         if (currentRoom.getEast() != null) {
             currentRoom = currentRoom.getEast();
-            System.out.println("Going east");
+            System.out.println("Going east...");
             currentRoomPrint();
         } else {
             noRoomMsg();
@@ -124,7 +124,7 @@ public class Adventure {
     public void goWest(){
         if (currentRoom.getWest() != null) {
             currentRoom = currentRoom.getWest();
-            System.out.println("Going west");
+            System.out.println("Going west...");
             currentRoomPrint();
         } else {
             noRoomMsg();
@@ -133,21 +133,21 @@ public class Adventure {
 
     // println for currentroom that the player is in
     public void currentRoomPrint() {
-        System.out.printf("You are now in %s %s\n", currentRoom.getName(), currentRoom.getDescription());
+        System.out.printf("You are now in %s. \n %s\n", currentRoom.getName(), currentRoom.getDescription());
 
     }
     public void exit(){
-        System.out.println("Exiting game, thanks for playing..");
+        System.out.println("Exiting game, thanks for playing...");
     }
 
     public void look(){
-        System.out.println("Looking around..");
+        System.out.println("Looking around...");
         currentRoomPrint();
     }
 
     // if no room is near, this msg will display
     public void noRoomMsg() {
-        System.out.println("You cannot go there");
+        System.out.println("You cannot go there.");
     }
     public void helpMsg(){
         System.out.println("\033[1mHere's a list of commands!\033[0m:\n" +
