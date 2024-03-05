@@ -5,13 +5,12 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     // creates a obj from Adventure class
     Adventure adventure = new Adventure();
-
-
-
+    
     public void startGame() {
         intro();
         while(true){
             String command = scanner.nextLine().toLowerCase();
+            System.out.print("> ");
             if(command.equals("exit")){
                 adventure.exit();
                 break;
@@ -26,9 +25,9 @@ public class UserInterface {
     }
     // Runs the welcome messages
     public void intro(){
-        System.out.println("Welcome to the adventure game");
-        System.out.println("Please type one of the following: Go north, Go South, Go West, Go east");
-        System.out.println("You can always use Exit, help and look"); //TODO lav i et menu format
+        System.out.println("\033[1mWelcome to the adventure game!\033[0m");
+        System.out.println("To start the game, write one of the following: Go north, Go South, Go West, Go east.");
+        adventure.helpMsg();
+        System.out.print("> ");
     }
-
     }
