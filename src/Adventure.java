@@ -1,15 +1,15 @@
 
 public class Adventure {
-    Room currentRoom;
-    Room r1;
-    Room r2;
-    Room r3;
-    Room r4;
-    Room r5;
-    Room r6;
-    Room r7;
-    Room r8;
-    Room r9;
+    private Room currentRoom;
+    private Room r1;
+    private Room r2;
+    private Room r3;
+    private Room r4;
+    private Room r5;
+    private Room r6;
+    private Room r7;
+    private Room r8;
+    private Room r9;
 
     public Adventure() {
         r1 = new Room("room 1", "east south");
