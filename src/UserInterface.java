@@ -25,9 +25,10 @@ public class UserInterface {
     }
     // Runs the welcome messages
     public void intro(){
+        System.out.println("");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
         System.out.println("To start the game, write one of the following: Go north, Go South, Go West, Go east.");
+        System.out.println("");
         adventure.helpMsg();
-        System.out.print("> ");
     }
-    }
+}
