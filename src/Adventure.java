@@ -117,4 +117,12 @@ public class Adventure {
     public void noRoomMsg() {
         System.out.println("You cannot go there");
     }
+
+    public void helpMsg(){
+        System.out.println("Here's a list of commands!:\n" +
+                    "* go north/south/east/west - Move to room in given direction \n" +
+                "* exit - Exit out of the game \n" +
+                "* look - Look around your current room\n" +
+                "* help - Get a list of commands");
+    }
 }
