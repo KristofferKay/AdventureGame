@@ -1,4 +1,8 @@
+import java.util.Scanner;
+
 public class Adventure {
+    Scanner scanner = new Scanner(System.in);
+
     Room currentRoom;
     Room r1;
     Room r2;
@@ -21,33 +25,9 @@ public class Adventure {
         r7 = new Room("room 7", "north east");
         r8 = new Room("room 8", "west north east");
         r9 = new Room("room 9", "west north");
-        currentRoom = r1;
         buildMap();
+        currentRoom = r1;
 
-    }
-
-    public void move( String direction) {
-        Room nextRoom = null;
-        switch (direction) {
-            case "go north":
-                nextRoom = currentRoom.getNorth();
-                break;
-            case "go east":
-                nextRoom = currentRoom.getEast();
-                break;
-            case "go south":
-                nextRoom = currentRoom.getSouth();
-                break;
-            case "go west":
-                nextRoom = currentRoom.getWest();
-                break;
-        }
-        if (nextRoom != null) {
-            currentRoom = nextRoom;
-            System.out.println("You move " + direction + " and enter " + currentRoom.getName());
-        } else {
-            System.out.println("You cannot move " + direction + " you cannot go that way");
-        }
     }
 
     public void buildMap() {
@@ -80,6 +60,52 @@ public class Adventure {
         r9.setNorth(r6);
     }
 
+    public boolean move(String userInput) {
+            switch (userInput.toLowerCase()) {
+                case "go north":
+                    System.out.println("Going north");
+                    if (currentRoom.getNorth() != null) {
+                        currentRoom = currentRoom.getNorth();
+                        currentRoomPrint();
+                    } else {
+                        System.out.println("You cannot go there");
+                    } break;
+                case "go south":
+                    System.out.println("Going south");
+                    if (currentRoom.getSouth() != null) {
+                        currentRoom = currentRoom.getSouth();
+                        currentRoomPrint();
+                    } else {
+                        System.out.println("You cannot go there");
+                    } break;
+                case "go west":
+                    System.out.println("Going west");
+                    if (currentRoom.getWest() != null) {
+                        currentRoom = currentRoom.getWest();
+                        currentRoomPrint();
+                    } else {
+                        System.out.println("You cannot go there");
+                    } break;
+                case "go east":
+                    System.out.println("Going east");
+                    if (currentRoom.getEast() != null) {
+                        currentRoom = currentRoom.getEast();
+                        currentRoomPrint();
+                    } else {
+                        System.out.println("You cannot go there");
+                    } break;
+                case "look":
+                    System.out.println("Looking around..");
+                    currentRoomPrint();
+                    break;
+                case "exit":
+                    System.out.println("Exiting game, thanks for playing..");
+                    break;
 
+            } return true;
+        }
 
+    public void currentRoomPrint() {
+        System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+    }
 }
