@@ -3,6 +3,7 @@ public class Main {
         // obj of userinterface
         UserInterface userInterface = new UserInterface();
         //starts the adventure game, in a infiite loop
+
         userInterface.startGame();
     }
 }
