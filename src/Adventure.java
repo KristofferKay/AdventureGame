@@ -60,15 +60,23 @@ public class Adventure {
     public boolean move(String userInput) {
         switch (userInput.toLowerCase()) {
             case "go north":
+            case "north":
+            case "n":
                 goNorth();
                 break;
             case "go south":
+            case "south":
+            case "s":
                 goSouth();
                 break;
             case "go west":
+            case "west":
+            case "w":
                 goWest();
                 break;
             case "go east":
+            case "east":
+            case "e":
                 goEast();
                 break;
         } return true;
@@ -83,11 +91,11 @@ public class Adventure {
             noRoomMsg();
         }
     }
-
     public void goSouth(){
         if (currentRoom.getSouth() != null) {
             currentRoom = currentRoom.getSouth();
             System.out.println("Going south");
+
             currentRoomPrint();
         } else {
             noRoomMsg();
@@ -103,7 +111,6 @@ public class Adventure {
             noRoomMsg();
         }
     }
-
     public void goWest(){
         if (currentRoom.getWest() != null) {
             currentRoom = currentRoom.getWest();
@@ -116,9 +123,9 @@ public class Adventure {
 
     // println for currentroom that the player is in
     public void currentRoomPrint() {
-        System.out.printf("You are now in %s %s", currentRoom.getName(), currentRoom.getDescription());
-    }
+        System.out.printf("You are now in %s %s\n", currentRoom.getName(), currentRoom.getDescription());
 
+    }
     public void exit(){
         System.out.println("Exiting game, thanks for playing..");
     }
