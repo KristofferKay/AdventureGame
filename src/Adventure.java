@@ -116,7 +116,7 @@ public class Adventure {
 
     // println for currentroom that the player is in
     public void currentRoomPrint() {
-        System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
+        System.out.printf("You are now in %s %s", currentRoom.getName(), currentRoom.getDescription());
     }
 
     public void exit(){
