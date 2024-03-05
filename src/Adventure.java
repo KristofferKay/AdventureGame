@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Adventure {
     Room currentRoom;
@@ -117,10 +116,9 @@ public class Adventure {
     public void noRoomMsg() {
         System.out.println("You cannot go there");
     }
-
     public void helpMsg(){
-        System.out.println("Here's a list of commands!:\n" +
-                    "* go north/south/east/west - Move to room in given direction \n" +
+        System.out.println("\033[1mHere's a list of commands!\033[0m:\n" +
+                "* go north/south/east/west - Move to room in given direction \n" +
                 "* exit - Exit out of the game \n" +
                 "* look - Look around your current room\n" +
                 "* help - Get a list of commands");
