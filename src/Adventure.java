@@ -1,53 +1,85 @@
 public class Adventure {
+    Room currentRoom;
+    Room r1;
+    Room r2;
+    Room r3;
+    Room r4;
+    Room r5;
+    Room r6;
+    Room r7;
+    Room r8;
+    Room r9;
 
-    Room room1 = new Room("East", "You are in room1  ");
-    String look;
 
-    public void currentRoom(String look) {
-        this.look = look;
+    public Adventure() {
+        r1 = new Room("room 1", "east south");
+        r2 = new Room("room 2", "west east");
+        r3 = new Room("room 3", "west south");
+        r4 = new Room("room 4", "north south");
+        r5 = new Room("room 5", "south");
+        r6 = new Room("room 6", "north south");
+        r7 = new Room("room 7", "north east");
+        r8 = new Room("room 8", "west north east");
+        r9 = new Room("room 9", "west north");
+        currentRoom = r1;
+        buildMap();
 
-        if (look.contains("look")) {
-            System.out.println("looking around");
+    }
 
+    public void move( String direction) {
+        Room nextRoom = null;
+        switch (direction) {
+            case "go north":
+                nextRoom = currentRoom.getNorth();
+                break;
+            case "go east":
+                nextRoom = currentRoom.getEast();
+                break;
+            case "go south":
+                nextRoom = currentRoom.getSouth();
+                break;
+            case "go west":
+                nextRoom = currentRoom.getWest();
+                break;
+        }
+        if (nextRoom != null) {
+            currentRoom = nextRoom;
+            System.out.println("You move " + direction + " and enter " + currentRoom.getName());
+        } else {
+            System.out.println("You cannot move " + direction + " you cannot go that way");
         }
     }
 
-    public void buildMap(){
-        Room room1 = new Room("Room 1", "description");
-        Room room2 = new Room("Room 2", "description");
-        Room room3 = new Room("Room 3", "description");
-        Room room4 = new Room("Room 4", "description");
-        Room room5 = new Room("Room 5", "description");
-        Room room6 = new Room("Room 6", "description");
-        Room room7 = new Room("Room 7", "description");
-        Room room8 = new Room("Room 8", "description");
-        Room room9 = new Room("Room 9", "description");
+    public void buildMap() {
 
-        room1.setEast(room2);
-        room1.setSouth(room4);
+        r1.setEast(r2);
+        r1.setSouth(r4);
 
-        room2.setWest(room1);
-        room2.setEast(room3);
+        r2.setWest(r1);
+        r2.setEast(r3);
 
-        room3.setWest(room2);
-        room3.setSouth(room6);
+        r3.setWest(r2);
+        r3.setSouth(r6);
 
-        room4.setNorth(room1);
-        room4.setSouth(room7);
+        r4.setNorth(r1);
+        r4.setSouth(r7);
 
-        room5.setSouth(room8);
+        r5.setSouth(r8);
 
-        room6.setNorth(room3);
-        room6.setSouth(room9);
+        r6.setNorth(r3);
+        r6.setSouth(r9);
 
-        room7.setNorth(room4);
-        room7.setEast(room8);
+        r7.setNorth(r4);
+        r7.setEast(r8);
 
-        room8.setWest(room7);
-        room8.setNorth(room5);
-        room8.setEast(room9);
+        r8.setWest(r7);
+        r8.setNorth(r5);
+        r8.setEast(r9);
 
-        room9.setWest(room8);
-        room9.setNorth(room6);
+        r9.setWest(r8);
+        r9.setNorth(r6);
     }
+
+
+
 }
