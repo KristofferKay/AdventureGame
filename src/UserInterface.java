@@ -9,8 +9,8 @@ public class UserInterface {
     public void startGame() {
         intro();
         while(true){
-            String command = scanner.nextLine().toLowerCase();
             System.out.print("> ");
+            String command = scanner.nextLine().toLowerCase();
             if(command.equals("exit")){
                 adventure.exit();
                 break;
