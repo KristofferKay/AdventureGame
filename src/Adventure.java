@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class Adventure {
-    Scanner scanner = new Scanner(System.in);
-
     Room currentRoom;
     Room r1;
     Room r2;
@@ -13,7 +11,6 @@ public class Adventure {
     Room r7;
     Room r8;
     Room r9;
-
 
     public Adventure() {
         r1 = new Room("room 1", "east south");
@@ -60,55 +57,61 @@ public class Adventure {
         r9.setNorth(r6);
     }
 
+    // method to move the player from room to room
     public boolean move(String userInput) {
-            switch (userInput.toLowerCase()) {
-                case "go north":
-                    System.out.println("Going north");
-                    if (currentRoom.getNorth() != null) {
-                        currentRoom = currentRoom.getNorth();
-                        currentRoomPrint();
-                    } else {
-                        noRoomMsg();
-                    } break;
-                case "go south":
-                    System.out.println("Going south");
-                    if (currentRoom.getSouth() != null) {
-                        currentRoom = currentRoom.getSouth();
-                        currentRoomPrint();
-                    } else {
-                        noRoomMsg();
-                    } break;
-                case "go west":
-                    System.out.println("Going west");
-                    if (currentRoom.getWest() != null) {
-                        currentRoom = currentRoom.getWest();
-                        currentRoomPrint();
-                    } else {
-                        noRoomMsg();
-                    } break;
-                case "go east":
-                    System.out.println("Going east");
-                    if (currentRoom.getEast() != null) {
-                        currentRoom = currentRoom.getEast();
-                        currentRoomPrint();
-                    } else {
-                        noRoomMsg();
-                    } break;
-                case "look":
-                    System.out.println("Looking around..");
+        switch (userInput.toLowerCase()) {
+            case "go north":
+                System.out.println("Going north");
+                if (currentRoom.getNorth() != null) {
+                    currentRoom = currentRoom.getNorth();
                     currentRoomPrint();
-                    break;
-                case "exit":
-                    System.out.println("Exiting game, thanks for playing..");
-                    break;
-
-            } return true;
+                } else {
+                    noRoomMsg();
+                }
+                break;
+            case "go south":
+                System.out.println("Going south");
+                if (currentRoom.getSouth() != null) {
+                    currentRoom = currentRoom.getSouth();
+                    currentRoomPrint();
+                } else {
+                    noRoomMsg();
+                }
+                break;
+            case "go west":
+                System.out.println("Going west");
+                if (currentRoom.getWest() != null) {
+                    currentRoom = currentRoom.getWest();
+                    currentRoomPrint();
+                } else {
+                    noRoomMsg();
+                }
+                break;
+            case "go east":
+                System.out.println("Going east");
+                if (currentRoom.getEast() != null) {
+                    currentRoom = currentRoom.getEast();
+                    currentRoomPrint();
+                } else {
+                    noRoomMsg();
+                }
+                break;
+            case "look":
+                System.out.println("Looking around..");
+                currentRoomPrint();
+                break;
+            case "exit":
+                System.out.println("Exiting game, thanks for playing..");
+                break;
         }
+        return true;
+    }
 
+    // println for currentroom that the player is in
     public void currentRoomPrint() {
         System.out.println(currentRoom.getName() + " " + currentRoom.getDescription());
     }
-
+    // if no room is near, this msg will display
     public void noRoomMsg() {
         System.out.println("You cannot go there");
     }
