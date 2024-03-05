@@ -17,7 +17,7 @@ public class UserInterface {
             } else if(command.equals("look")){
                 adventure.look();
             } else if(command.equals("help")){
-                //adventure.help();
+                adventure.helpMsg();
             } else {
                 adventure.move(command);
             }
