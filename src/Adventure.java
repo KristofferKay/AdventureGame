@@ -61,42 +61,58 @@ public class Adventure {
     public boolean move(String userInput) {
         switch (userInput.toLowerCase()) {
             case "go north":
-                System.out.println("Going north");
-                if (currentRoom.getNorth() != null) {
-                    currentRoom = currentRoom.getNorth();
-                    currentRoomPrint();
-                } else {
-                    noRoomMsg();
-                }
+                goNorth();
                 break;
             case "go south":
-                System.out.println("Going south");
-                if (currentRoom.getSouth() != null) {
-                    currentRoom = currentRoom.getSouth();
-                    currentRoomPrint();
-                } else {
-                    noRoomMsg();
-                }
+                goSouth();
                 break;
             case "go west":
-                System.out.println("Going west");
-                if (currentRoom.getWest() != null) {
-                    currentRoom = currentRoom.getWest();
-                    currentRoomPrint();
-                } else {
-                    noRoomMsg();
-                }
+                goWest();
                 break;
             case "go east":
-                System.out.println("Going east");
-                if (currentRoom.getEast() != null) {
-                    currentRoom = currentRoom.getEast();
-                    currentRoomPrint();
-                } else {
-                    noRoomMsg();
-                }
+                goEast();
                 break;
         } return true;
+    }
+
+    public void goNorth(){
+        if (currentRoom.getNorth() != null) {
+            currentRoom = currentRoom.getNorth();
+            System.out.println("Going north");
+            currentRoomPrint();
+        } else {
+            noRoomMsg();
+        }
+    }
+
+    public void goSouth(){
+        if (currentRoom.getSouth() != null) {
+            currentRoom = currentRoom.getSouth();
+            System.out.println("Going south");
+            currentRoomPrint();
+        } else {
+            noRoomMsg();
+        }
+    }
+
+    public void goEast(){
+        if (currentRoom.getEast() != null) {
+            currentRoom = currentRoom.getEast();
+            System.out.println("Going east");
+            currentRoomPrint();
+        } else {
+            noRoomMsg();
+        }
+    }
+
+    public void goWest(){
+        if (currentRoom.getWest() != null) {
+            currentRoom = currentRoom.getWest();
+            System.out.println("Going west");
+            currentRoomPrint();
+        } else {
+            noRoomMsg();
+        }
     }
 
     // println for currentroom that the player is in
