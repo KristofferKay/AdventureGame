@@ -1,51 +1,35 @@
 public class Player {
     private Room currentRoom;
 
-
-
-
     public Room goNorth() {
         if (currentRoom.getNorth() != null) {
             currentRoom = currentRoom.getNorth();
             return currentRoom;
-
         }
         return null;
     }
-    public void goSouth(){
+    public Room goSouth(){
         if (currentRoom.getSouth() != null) {
             currentRoom = currentRoom.getSouth();
-            System.out.println("Going south...");
-
-            currentRoomPrint();
-        } else {
-            noRoomMsg();
+            return currentRoom;
         }
+        return null;
     }
 
-    public void goEast(){
+    public Room goEast(){
         if (currentRoom.getEast() != null) {
             currentRoom = currentRoom.getEast();
-            System.out.println("Going east...");
-            currentRoomPrint();
-        } else {
-            noRoomMsg();
+            return currentRoom;
         }
-    }
-    public void goWest(){
+        return null;
+        }
+
+    public Room goWest() {
         if (currentRoom.getWest() != null) {
             currentRoom = currentRoom.getWest();
-            System.out.println("Going west...");
-            currentRoomPrint();
-        } else {
-            noRoomMsg();
+            return currentRoom;
         }
-    }
-
-    // println for currentroom that the player is in
-    public void currentRoomPrint() {
-        System.out.printf("You are now in %s. \n %s\n", currentRoom.getName(), currentRoom.getDescription());
-
+        return null;
     }
 
     public Room getCurrentRoom() {
