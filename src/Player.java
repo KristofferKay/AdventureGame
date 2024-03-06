@@ -2,7 +2,7 @@ public class Player {
     private Room currentRoom;
 
 
-    // method to move the player from room to room
+    // method to move the player from room to rooms
     public boolean move(String userInput) {
         switch (userInput.toLowerCase()) {
             case "go north":

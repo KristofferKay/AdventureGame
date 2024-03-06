@@ -4,7 +4,7 @@ public class Adventure {
     private Map map;
 
 
-
+// adventure
     public Adventure() {
         map = new Map();
         currentRoom = map.getRoom1();

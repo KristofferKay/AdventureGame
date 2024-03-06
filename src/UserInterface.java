@@ -36,7 +36,6 @@ public class UserInterface {
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         System.out.printf("You are now in %s. \n %s\n", player.getCurrentRoom().getName(), player.getCurrentRoom().getDescription());
-
     }
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");
@@ -47,7 +46,7 @@ public class UserInterface {
         currentRoomPrint();
     }
 
-    // if no room is near, this msg will display
+    // if no room is near, this msg will display do
     public void noRoomMsg() {
         System.out.println("You cannot go there.");
     }
