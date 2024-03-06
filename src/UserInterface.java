@@ -36,7 +36,7 @@ public class UserInterface {
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         System.out.printf("You are now in %s. \n %s\n", adventure.getPlayer().getCurrentRoom().getName(),
-                adventure.getPlayer().getCurrentRoom().getDescription());
+                adventure.getPlayer().getCurrentRoom().getLongDescription());
     }
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");

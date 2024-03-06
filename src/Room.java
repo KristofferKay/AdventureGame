@@ -1,14 +1,16 @@
 public class Room {
     private String name;
-    private String description;
+    private String longDescription;
+    private String shortDescription;
     private Room north;
     private Room east;
     private Room west;
     private Room south;
 
-    public Room(String name, String description) {
+    public Room(String name, String longDescription, String shortDescription) {
         this.name = name;
-        this.description = description;
+        this.longDescription = longDescription;
+        this.shortDescription = shortDescription;
     }
     public String getName() {
         return name;
@@ -18,12 +20,20 @@ public class Room {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLongDescription() {
+        return longDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public Room getNorth() {
