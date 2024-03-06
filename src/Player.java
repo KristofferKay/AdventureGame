@@ -1,5 +1,7 @@
 public class Player {
     Adventure adventure = new Adventure();
+    private Room currentRoom;
+
 
     // method to move the player from room to room
     public boolean move(String userInput) {
@@ -28,8 +30,8 @@ public class Player {
     }
 
     public void goNorth(){
-        if (adventure.currentRoom.getNorth() != null) {
-            currentRoom = currentRoom.getNorth();
+        if (currentRoom.getNorth() != null) {
+             currentRoom = currentRoom.getNorth();
             System.out.println("Going north...");
             currentRoomPrint();
         } else {

@@ -5,6 +5,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     // creates a obj from Adventure class
     Adventure adventure = new Adventure();
+    Player player = new Player();
     
     public void startGame() {
         intro();
@@ -19,8 +20,8 @@ public class UserInterface {
             } else if(command.equals("help")){
                 adventure.helpMsg();
             } else {
-                adventure.move(command);
-            }
+                player.move(command);
+            } //TODO add else if to capture mismatch from user
         }
     }
     // Runs the welcome messages
