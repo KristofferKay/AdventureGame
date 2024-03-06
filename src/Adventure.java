@@ -1,7 +1,7 @@
 
 public class Adventure {
-    private Room currentRoom;
     private Map map;
+    Player player = new Player();
 
 
 // adventure
@@ -10,6 +10,10 @@ public class Adventure {
         currentRoom = map.getRoom1();
     }
 
+
+    public Room goNorth(){
+        return player.goNorth();
+    }
 
 
 }

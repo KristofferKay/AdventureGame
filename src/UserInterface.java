@@ -20,7 +20,7 @@ public class UserInterface {
             } else if(command.equals("help")){
                 helpMsg();
             } else {
-                player.move(command);
+                move(command);
             } //TODO add else if to capture mismatch from user
         }
     }
@@ -57,6 +57,43 @@ public class UserInterface {
                 "* look - Look around your current room\n" +
                 "* help - Get a list of commands\n" +
                 "\033[1m**********************************\033[0m");
+    }
+
+
+    // method to move the player from room to rooms
+    public boolean move(String userInput) {
+        switch (userInput.toLowerCase()) {
+            case "go north":
+            case "north":
+            case "n":
+                goNorth();
+                break;
+            case "go south":
+            case "south":
+            case "s":
+                goSouth();
+                break;
+            case "go west":
+            case "west":
+            case "w":
+                goWest();
+                break;
+            case "go east":
+            case "east":
+            case "e":
+                goEast();
+                break;
+        } return true;
+    }
+
+    public void goNorth(){
+        Room northernRoom = adventure.goNorth();
+        if(northernRoom != null){
+            System.out.println("Going north...");
+            currentRoomPrint();
+        }else{
+            noRoomMsg();
+        }
     }
 }
 

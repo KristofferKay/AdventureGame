@@ -2,40 +2,15 @@ public class Player {
     private Room currentRoom;
 
 
-    // method to move the player from room to rooms
-    public boolean move(String userInput) {
-        switch (userInput.toLowerCase()) {
-            case "go north":
-            case "north":
-            case "n":
-                goNorth();
-                break;
-            case "go south":
-            case "south":
-            case "s":
-                goSouth();
-                break;
-            case "go west":
-            case "west":
-            case "w":
-                goWest();
-                break;
-            case "go east":
-            case "east":
-            case "e":
-                goEast();
-                break;
-        } return true;
-    }
 
-    public void goNorth(){
+
+    public Room goNorth() {
         if (currentRoom.getNorth() != null) {
-             currentRoom = currentRoom.getNorth();
-            System.out.println("Going north...");
-            currentRoomPrint();
-        } else {
-            noRoomMsg();
+            currentRoom = currentRoom.getNorth();
+            return currentRoom;
+
         }
+        return null;
     }
     public void goSouth(){
         if (currentRoom.getSouth() != null) {
