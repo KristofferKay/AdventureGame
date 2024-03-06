@@ -95,6 +95,36 @@ public class UserInterface {
             noRoomMsg();
         }
     }
+
+    public void goSouth(){
+        Room southernRoom = adventure.goSouth();
+        if(southernRoom != null){
+            System.out.println("Going south...");
+            currentRoomPrint();
+        }else{
+            noRoomMsg();
+        }
+    }
+
+    public void goEast(){
+        Room easternRoom = adventure.goEast();
+        if(easternRoom != null){
+            System.out.println("Going east...");
+            currentRoomPrint();
+        }else{
+            noRoomMsg();
+        }
+    }
+
+    public void goWest(){
+        Room westernRoom = adventure.goWest();
+        if(westernRoom != null){
+            System.out.println("Going west...");
+            currentRoomPrint();
+        }else{
+            noRoomMsg();
+        }
+    }
 }
 
 
