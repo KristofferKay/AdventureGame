@@ -40,6 +40,7 @@ public class Room {
 
     public void setEast(Room east) {
         this.east = east;
+        east.setWest(this);
     }
 
     public Room getWest() {
@@ -56,5 +57,6 @@ public class Room {
 
     public void setSouth(Room south) {
         this.south = south;
+        south.setNorth(this);
     }
 }
