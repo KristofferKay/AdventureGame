@@ -1,18 +1,24 @@
 
 public class Adventure {
-    private Map map;
+    private Map map = new Map();
     Player player = new Player();
 
-
-// adventure
-    public Adventure() {
-        map = new Map();
-        currentRoom = map.getRoom1();
-    }
 
 
     public Room goNorth(){
         return player.goNorth();
+    }
+
+    public Room goSouth(){
+        return player.goSouth();
+    }
+
+    public Room goWest(){
+        return player.goWest();
+    }
+
+    public Room goEast(){
+        return player.goEast();
     }
 
 
