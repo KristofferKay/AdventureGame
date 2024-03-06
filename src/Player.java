@@ -1,5 +1,10 @@
 public class Player {
+
     private Room currentRoom;
+
+    public Player(Room firstRoom) {
+        this.currentRoom = firstRoom;
+    }
 
     public Room goNorth() {
         if (currentRoom.getNorth() != null) {

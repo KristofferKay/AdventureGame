@@ -5,7 +5,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     // creates a obj from Adventure class
     Adventure adventure = new Adventure();
-    Player player = new Player();
+
     
     public void startGame() {
         intro();
@@ -35,7 +35,8 @@ public class UserInterface {
 
     // println for currentroom that the player is in
     public void currentRoomPrint() {
-        System.out.printf("You are now in %s. \n %s\n", player.getCurrentRoom().getName(), player.getCurrentRoom().getDescription());
+        System.out.printf("You are now in %s. \n %s\n", adventure.getPlayer().getCurrentRoom().getName(),
+                adventure.getPlayer().getCurrentRoom().getDescription());
     }
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");
