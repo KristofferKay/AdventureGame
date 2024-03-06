@@ -6,6 +6,7 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
+    private boolean beenThere = false;
 
     public Room(String name, String longDescription, String shortDescription) {
         this.name = name;
@@ -14,6 +15,14 @@ public class Room {
     }
     public String getName() {
         return name;
+    }
+
+    public boolean hasBeenThere() {
+        return beenThere;
+    }
+
+    public void setBeenThere(boolean beenThere) {
+        this.beenThere = beenThere;
     }
 
     public void setName(String name) {
