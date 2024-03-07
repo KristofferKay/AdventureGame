@@ -15,14 +15,22 @@ public class Map {
         room1 = new Room("Room 1",
                 "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ",
                 "Empty room.");
+
         room2 = new Room("Room 2",
                 "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door in the east" +
                 "and through a metal door in the west.",
                 "Room with a dining table.");
+        room2.addItem(new Item("Kitchen knive", "A kitchen knive, small but quite sharp."),
+                new Item("Cheese", "A piece of old stinking cheese."),
+                new Item("Water", "A bottle filled with water."),
+                new Item("Apple", "A fresh delicious apple."));
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
                 "Room - weapon storage.");
+        room3.addItem(new Item("One hand sword", "A sword for using in one hand, new and shiny."),
+                new Item("Shield", "A round metal shield with runes on it."),
+                new Item("Bow", "A light wooden bow"));
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
                 "Grab it and continue either throw a metal door in the north, or through a passage in the south.",
