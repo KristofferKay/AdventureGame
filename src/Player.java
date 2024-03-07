@@ -7,6 +7,7 @@ public class Player {
     }
 
     public Room goNorth() {
+        leaveRoom();
         if (currentRoom.getNorth() != null) {
             currentRoom = currentRoom.getNorth();
             return currentRoom;
@@ -14,6 +15,7 @@ public class Player {
         return null;
     }
     public Room goSouth(){
+        leaveRoom();
         if (currentRoom.getSouth() != null) {
             currentRoom = currentRoom.getSouth();
             return currentRoom;
@@ -22,6 +24,7 @@ public class Player {
     }
 
     public Room goEast(){
+        leaveRoom();
         if (currentRoom.getEast() != null) {
             currentRoom = currentRoom.getEast();
             return currentRoom;
@@ -30,6 +33,7 @@ public class Player {
     }
 
     public Room goWest() {
+        leaveRoom();
         if (currentRoom.getWest() != null) {
             currentRoom = currentRoom.getWest();
             return currentRoom;
@@ -39,5 +43,9 @@ public class Player {
 
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+
+    public void leaveRoom(){
+        currentRoom.setBeenThere(true);
     }
 }

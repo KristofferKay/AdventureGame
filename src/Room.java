@@ -6,12 +6,20 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
-    private boolean beenThere = false;//TODO: implement marking rooms as visited
+    private boolean beenThere = false;
 
     public Room(String name, String longDescription, String shortDescription) {
         this.name = name;
         this.longDescription = longDescription;
         this.shortDescription = shortDescription;
+    }
+
+    public String getDescription(){
+        if(beenThere){
+            return shortDescription;
+        }else{
+            return longDescription;
+        }
     }
     public String getName() {
         return name;

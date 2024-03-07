@@ -49,16 +49,18 @@ public class UserInterface {
 
     // println for currentroom that the player is in
     public void currentRoomPrint() {
-        System.out.printf("You are now in %s. \n %s\n", adventure.getPlayer().getCurrentRoom().getName(),
-                adventure.getPlayer().getCurrentRoom().getLongDescription());
+        Room currentRoom = adventure.getPlayer().getCurrentRoom();
+        System.out.printf("You are now in %s. \n %s\n", currentRoom.getName(),
+                currentRoom.getDescription());
     }
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");
     }
 
     public void look(){
+        Room currentRoom = adventure.getPlayer().getCurrentRoom();
         System.out.println("Looking around...");
-        currentRoomPrint();
+        System.out.println(currentRoom.getLongDescription());
     }
 
     // if no room is near, this msg will display do
