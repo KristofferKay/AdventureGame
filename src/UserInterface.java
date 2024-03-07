@@ -5,10 +5,13 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     // creates a obj from Adventure class
     Adventure adventure = new Adventure();
+    PlaySound playSound = new PlaySound();
 
-    
+
+
     public void startGame() {
         intro();
+
         while(true){
             System.out.print("> ");
             String command = scanner.nextLine().toLowerCase();
@@ -21,16 +24,27 @@ public class UserInterface {
                 helpMsg();
             } else {
                 move(command);
+
             } //TODO add else if to capture mismatch from user
         }
     }
     // Runs the welcome messages
     public void intro(){
+
         System.out.println("");
+        System.out.println("             _                 _                   _____                      \n" +
+                "    /\\      | |               | |                 / ____|                     \n" +
+                "   /  \\   __| |_   _____ _ __ | |_ _   _ _ __ ___| |  __  __ _ _ __ ___   ___ \n" +
+                "  / /\\ \\ / _` \\ \\ / / _ \\ '_ \\| __| | | | '__/ _ \\ | |_ |/ _` | '_ ` _ \\ / _ \\\n" +
+                " / ____ \\ (_| |\\ V /  __/ | | | |_| |_| | | |  __/ |__| | (_| | | | | | |  __/\n" +
+                "/_/    \\_\\__,_| \\_/ \\___|_| |_|\\__|\\__,_|_|  \\___|\\_____|\\__,_|_| |_| |_|\\___|\n" +
+                "                                                                              ");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
         System.out.println("To start the game, write one of the following: Go north, Go South, Go West, Go east.");
         System.out.println("");
         helpMsg();
+//      Uncomment to play music, beaware ITS LOUD.
+//      PlaySoundMethod();
     }
 
     // println for currentroom that the player is in
@@ -125,6 +139,11 @@ public class UserInterface {
         }else{
             noRoomMsg();
         }
+    }
+
+    public void PlaySoundMethod() {
+//        String lydfilSti = "/introsound.wav";
+//        PlaySound.afspilLydfil(lydfilSti);
     }
 }
 
