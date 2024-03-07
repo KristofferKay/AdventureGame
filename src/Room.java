@@ -6,7 +6,7 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
-    private boolean beenThere = false;
+    private boolean beenThere = false;//TODO: implement marking rooms as visited
 
     public Room(String name, String longDescription, String shortDescription) {
         this.name = name;
