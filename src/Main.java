@@ -6,6 +6,5 @@ public class Main {
         //starts the adventure game, in a infiite loop
         userInterface.startGame();
 
-
     }
 }

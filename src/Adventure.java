@@ -18,24 +18,24 @@ public class Adventure {
     }
 
 
-    public Room goNorth(){
+    public Room goNorth() {
         return player.goNorth();
     }
 
-    public Room goSouth(){
+    public Room goSouth() {
         return player.goSouth();
     }
 
-    public Room goWest(){
+    public Room goWest() {
         return player.goWest();
     }
 
-    public Room goEast(){
+    public Room goEast() {
         return player.goEast();
     }
 
-    public ArrayList<Item> getPlayerItems(){
-        return player.getAllItems();
+    public ArrayList<Item> getInventory() {
+        return player.getInventory();
     }
 
     public Item takeItem(String shortName) {
@@ -47,7 +47,7 @@ public class Adventure {
         return takenItem;
     }
 
-        public Item dropItem(String shortName){
+    public Item dropItem(String shortName) {
         return player.dropItem(shortName);
     }
 

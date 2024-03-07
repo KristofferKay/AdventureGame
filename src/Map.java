@@ -20,8 +20,8 @@ public class Map {
                 "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door in the east" +
                 "and through a metal door in the west.",
                 "Room with a dining table.");
-        room2.addItem(new Item("Kitchen knive", "A kitchen knive, small but quite sharp."),
-                new Item("Cheese", "A piece of old stinking cheese."),
+        room2.addItem(new Item("kitchen knive", "A kitchen knive, small but quite sharp."),
+                new Item("cheese", "A piece of old stinking cheese."),
                 new Item("water", "A bottle filled with water."),
                 new Item("apple", "A fresh delicious apple."));
         room3 = new Room("Room 3",

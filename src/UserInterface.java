@@ -55,7 +55,7 @@ public class UserInterface {
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         Room currentRoom = adventure.getPlayer().getCurrentRoom();
-        System.out.printf("You are now in %s. \n %s\n", currentRoom.getName(),
+        System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(),
                 currentRoom.getDescription());
     }
     public void exit(){
@@ -81,12 +81,14 @@ public class UserInterface {
                 "\033[1m**********************************\033[0m");
     }
     public void inventory(){
-        List<Item> playerItems = adventure.getPlayerItems();
+        List<Item> playerItems = adventure.getInventory();
         if(!playerItems.isEmpty()){
-            System.out.println("You have these items in your bag:\n");
+            System.out.println("You have these items in your bag:");
             for(Item item : playerItems){
                 System.out.println(item.getShortName());
             }
+        }else{
+            System.out.println("Your bag is empty.");
         }
     }
 
@@ -127,9 +129,7 @@ public class UserInterface {
             }
         return true;
     }
-    public void inventory() {
-        adventure.inventory();
-    }
+
 
     private void takeItem(String[] splitString) {
             Item takeItem = adventure.takeItem(splitString[1]);

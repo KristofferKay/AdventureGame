@@ -72,7 +72,7 @@ public class Player {
     }
 
     public ArrayList<Item> getInventory() {
-        return new ArrayList<>(inventory);
+        return inventory;
     }
 
     public void addItem(Item item) {
