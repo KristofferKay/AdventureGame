@@ -100,6 +100,8 @@ public class UserInterface {
             case "e":
                 goEast();
                 break;
+            default:
+                System.out.println("Invalid command. Try again");
         } return true;
     }
 
