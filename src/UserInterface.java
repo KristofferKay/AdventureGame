@@ -45,7 +45,7 @@ public class UserInterface {
                 "/_/    \\_\\__,_| \\_/ \\___|_| |_|\\__|\\__,_|_|  \\___|\\_____|\\__,_|_| |_| |_|\\___|\n" +
                 "                                                                              ");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
-        System.out.println("To start the game, write one of the following: Go north, Go South, Go West, Go east.");
+        System.out.println("To start the game, write one of the following: north, south, west, east.");
         System.out.println("");
         helpMsg();
 //      Uncomment to play music, beaware ITS LOUD.
@@ -73,11 +73,14 @@ public class UserInterface {
         System.out.println("You cannot go there.");
     }
     public void helpMsg(){
-        System.out.println("\033[1mHere's a list of commands!\033[0m:\n" +
-                "* go north/south/east/west - Move to room in given direction \n" +
+        System.out.println("\033[1mHere's a list of commands\033[0m:\n" +
+                "* north/south/east/west or n/s/e/w - Move to a room in given direction \n" +
                 "* exit - Exit out of the game \n" +
                 "* look - Look around your current room\n" +
                 "* help - Get a list of commands\n" +
+                "* inventory/inv - See the list of items in your inventory\n" +
+                "* take -itemName - Take the item\n" +
+                "* drop -itemName - Drop the item\n" +
                 "\033[1m**********************************\033[0m");
     }
     public void inventory(){
