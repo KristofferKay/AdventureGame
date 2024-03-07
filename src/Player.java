@@ -1,9 +1,24 @@
+import java.util.ArrayList;
+
 public class Player {
 
     private Room currentRoom;
+    private ArrayList<Item> playerItems = new ArrayList<>();
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
+    }
+
+    public void addItem(Item item){
+        playerItems.add(item);
+    }
+
+    public void removeItem(Item item){
+        playerItems.remove(item);
+    }
+
+    public ArrayList<Item> getAllItems(){
+        return playerItems;
     }
 
     public Room goNorth() {

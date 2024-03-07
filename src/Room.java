@@ -34,6 +34,10 @@ public class Room {
         roomItems.remove(item);
     }
 
+    public ArrayList<Item> getAllItems(){
+        return roomItems;
+    }
+
     public String getName() {
         return name;
     }
