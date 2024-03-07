@@ -44,7 +44,7 @@ public class UserInterface {
         System.out.println("");
         helpMsg();
 //      Uncomment to play music, beaware ITS LOUD.
-//      PlaySoundMethod();
+      PlaySoundMethod();
     }
 
     // println for currentroom that the player is in
@@ -146,8 +146,8 @@ public class UserInterface {
     }
 
     public void PlaySoundMethod() {
-//        String lydfilSti = "/introsound.wav";
-//        PlaySound.afspilLydfil(lydfilSti);
+        String lydfilSti = "/introsound.wav";
+        PlaySound.afspilLydfil(lydfilSti);
     }
 }
 
