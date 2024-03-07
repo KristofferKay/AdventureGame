@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -22,7 +24,9 @@ public class UserInterface {
                 look();
             } else if(command.equals("help")){
                 helpMsg();
-            } else {
+            } else if(command.equals("inventory") || command.equals("inv")){
+                inventory();
+            }else {
                 move(command);
 
             } //TODO add else if to capture mismatch from user
@@ -75,7 +79,15 @@ public class UserInterface {
                 "* help - Get a list of commands\n" +
                 "\033[1m**********************************\033[0m");
     }
-
+    public void inventory(){
+        List<Item> playerItems = adventure.getPlayerItems();
+        if(!playerItems.isEmpty()){
+            System.out.println("You have these items in your bag:\n");
+            for(Item item : playerItems){
+                System.out.println(item.getShortName());
+            }
+        }
+    }
 
     // method to move the player from room to rooms
     public boolean move(String userInput) {

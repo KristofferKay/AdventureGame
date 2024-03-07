@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Adventure {
     private Map map;
@@ -31,6 +32,10 @@ public class Adventure {
 
     public Room goEast(){
         return player.goEast();
+    }
+
+    public ArrayList<Item> getPlayerItems(){
+        return player.getAllItems();
     }
 
 
