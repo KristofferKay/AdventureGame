@@ -19,9 +19,9 @@ public class Room {
 
     public String getDescription(){
         if(beenThere){
-            return shortDescription;
+            return getShortDescription();
         }else{
-            return longDescription;
+            return getLongDescription();
         }
     }
 
@@ -55,7 +55,15 @@ public class Room {
     }
 
     public String getLongDescription() {
-        return longDescription;
+        String description = longDescription;
+        if(!roomItems.isEmpty()){
+            description += "\nItems in the room: \n";
+            for(Item item : roomItems){
+                description += item.getShortName() + ". ";
+                description += item.getLongName() + "\n";
+            }
+        }
+        return description;
     }
 
     public void setLongDescription(String longDescription) {
@@ -63,7 +71,14 @@ public class Room {
     }
 
     public String getShortDescription() {
-        return shortDescription;
+        String description = shortDescription;
+        if(!roomItems.isEmpty()){
+            description += "\nItems in the room: \n";
+            for(Item item : roomItems){
+                description += item.getShortName() + "\n";
+            }
+        }
+        return description;
     }
 
     public void setShortDescription(String shortDescription) {
