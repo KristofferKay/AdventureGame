@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Room {
     private String name;
     private String longDescription;
@@ -6,6 +8,7 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
+    private ArrayList<Item> roomItems = new ArrayList<>();
     private boolean beenThere = false;
 
     public Room(String name, String longDescription, String shortDescription) {
@@ -21,6 +24,16 @@ public class Room {
             return longDescription;
         }
     }
+
+    public void addItem(Item ... items){
+        for(Item item : items){
+            roomItems.add(item);
+        }
+    }
+    public void removeItem(Item item){
+        roomItems.remove(item);
+    }
+
     public String getName() {
         return name;
     }
