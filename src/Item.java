@@ -22,4 +22,11 @@ public class Item {
     public void setLongName(String longName) {
         this.longName = longName;
     }
+
+    @Override
+    public String toString() {
+        return shortName;
+    }
+
+
 }

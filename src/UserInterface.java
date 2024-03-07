@@ -6,6 +6,7 @@ public class UserInterface {
     // creates a obj from Adventure class
     Adventure adventure = new Adventure();
     PlaySound playSound = new PlaySound();
+    private Item item;
 
 
 
@@ -79,31 +80,63 @@ public class UserInterface {
 
     // method to move the player from room to rooms
     public boolean move(String userInput) {
-        switch (userInput.toLowerCase()) {
-            case "go north":
-            case "north":
-            case "n":
-                goNorth();
-                break;
-            case "go south":
-            case "south":
-            case "s":
-                goSouth();
-                break;
-            case "go west":
-            case "west":
-            case "w":
-                goWest();
-                break;
-            case "go east":
-            case "east":
-            case "e":
-                goEast();
-                break;
-            default:
-                System.out.println("Invalid command. Try again");
-        } return true;
+        String[] splitString = userInput.split(" ");
+        String command = splitString[0].toLowerCase();
+
+            switch (command) {
+                case "north":
+                case "n":
+                    goNorth();
+                    break;
+                case "south":
+                case "s":
+                    goSouth();
+                    break;
+                case "west":
+                case "w":
+                    goWest();
+                    break;
+                case "east":
+                case "e":
+                    goEast();
+                    break;
+                case "take":
+                    takeItem(splitString);
+                    break;
+                case "drop":
+                    dropItem(splitString);
+                    break;
+                case "inventory":
+                    inventory();
+                    break;
+                default:
+                    System.out.println("Invalid command. Try again");
+                    break;
+            }
+        return true;
     }
+    public void inventory() {
+        adventure.inventory();
+    }
+
+    private void takeItem(String[] splitString) {
+            Item takeItem = adventure.takeItem(splitString[1]);
+            if (takeItem != null) {
+                System.out.println("You picked up " + takeItem.getShortName());
+            } else {
+                System.out.println("There are no " + splitString[1] + " in the room");
+            }
+    }
+
+    private void dropItem(String[] splitString) {
+            Item dropItem = adventure.dropItem(splitString[1]);
+            if (dropItem != null) {
+                System.out.println("You dropped " + dropItem.getShortName());
+            } else {
+                System.out.println("There are no " + splitString[1] + " in your inventory");
+            }
+    }
+
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();
