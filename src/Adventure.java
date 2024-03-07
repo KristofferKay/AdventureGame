@@ -38,5 +38,17 @@ public class Adventure {
         return player.getAllItems();
     }
 
+    public Item takeItem(String shortName) {
+        Room currentRoom = player.getCurrentRoom();
+        Item takenItem = currentRoom.removeItemInRoom(shortName);
+        if (takenItem != null) {
+            player.addItem(takenItem); // Add the item to the player's inventory
+        }
+        return takenItem;
+    }
+
+        public Item dropItem(String shortName){
+        return player.dropItem(shortName);
+    }
 
 }

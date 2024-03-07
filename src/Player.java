@@ -3,22 +3,11 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
-    private ArrayList<Item> playerItems = new ArrayList<>();
+    private ArrayList<Item> inventory;
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
-    }
-
-    public void addItem(Item item){
-        playerItems.add(item);
-    }
-
-    public void removeItem(Item item){
-        playerItems.remove(item);
-    }
-
-    public ArrayList<Item> getAllItems(){
-        return playerItems;
+        this.inventory = new ArrayList<>();
     }
 
     public Room goNorth() {
@@ -29,7 +18,8 @@ public class Player {
         }
         return null;
     }
-    public Room goSouth(){
+
+    public Room goSouth() {
         leaveRoom();
         if (currentRoom.getSouth() != null) {
             currentRoom = currentRoom.getSouth();
@@ -38,7 +28,7 @@ public class Player {
         return null;
     }
 
-    public Room goEast(){
+    public Room goEast() {
         leaveRoom();
         if (currentRoom.getEast() != null) {
             currentRoom = currentRoom.getEast();
@@ -60,7 +50,45 @@ public class Player {
         return currentRoom;
     }
 
-    public void leaveRoom(){
+    public void leaveRoom() {
         currentRoom.setBeenThere(true);
+    }
+
+//    public Item takeItem(String shortName) {
+//        Item takenItem = getCurrentRoom().removeItem(shortName);
+//        if (takenItem != null) {
+//            addItem(takenItem);
+//        }
+//        return takenItem;
+//    }
+
+    public Item dropItem(String shortName) {
+        Item droppedItem = findItemInInventory(shortName);
+        if (droppedItem != null) {
+            removeItem(droppedItem);
+            getCurrentRoom().addItem(droppedItem);
+        }
+        return droppedItem;
+    }
+
+    public ArrayList<Item> getInventory() {
+        return new ArrayList<>(inventory);
+    }
+
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
+    public void removeItem(Item item) {
+        inventory.remove(item);
+    }
+
+    private Item findItemInInventory(String shortName) {
+        for (Item item : inventory) {
+            if (item.getShortName().equals(shortName)) {
+                return item;
+            }
+        }
+        return null;
     }
 }

@@ -30,9 +30,19 @@ public class Room {
             roomItems.add(item);
         }
     }
-    public void removeItem(Item item){
-        roomItems.remove(item);
+
+    public Item findItemInRoom(String shortName) {
+        for (Item item : roomItems) {
+            if (item.getShortName().equals(shortName)) {
+                return item;
+            }
+        }
+        return null;
     }
+    public Item removeItemInRoom(String shortName){
+        Item item = findItemInRoom(shortName);
+        roomItems.remove(item);
+        return item;    }
 
     public ArrayList<Item> getAllItems(){
         return roomItems;

@@ -22,8 +22,8 @@ public class Map {
                 "Room with a dining table.");
         room2.addItem(new Item("Kitchen knive", "A kitchen knive, small but quite sharp."),
                 new Item("Cheese", "A piece of old stinking cheese."),
-                new Item("Water", "A bottle filled with water."),
-                new Item("Apple", "A fresh delicious apple."));
+                new Item("water", "A bottle filled with water."),
+                new Item("apple", "A fresh delicious apple."));
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
