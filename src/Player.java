@@ -54,13 +54,14 @@ public class Player {
         currentRoom.setBeenThere(true);
     }
 
-//    public Item takeItem(String shortName) {
-//        Item takenItem = getCurrentRoom().removeItem(shortName);
-//        if (takenItem != null) {
-//            addItem(takenItem);
-//        }
-//        return takenItem;
-//    }
+    public Item takeItem(String shortName) {
+
+        Item takenItem = currentRoom.removeItemInRoom(shortName);
+        if (takenItem != null) {
+            addItem(takenItem); // Add the item to the player's inventory
+        }
+        return takenItem;
+    }
 
     public Item dropItem(String shortName) {
         Item droppedItem = findItemInInventory(shortName);

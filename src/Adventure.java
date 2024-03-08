@@ -9,10 +9,6 @@ public class Adventure {
         player = new Player(map.getRoom1());
     }
 
-    public Map getMap() {
-        return map;
-    }
-
     public Player getPlayer() {
         return player;
     }
@@ -39,12 +35,7 @@ public class Adventure {
     }
 
     public Item takeItem(String shortName) {
-        Room currentRoom = player.getCurrentRoom();
-        Item takenItem = currentRoom.removeItemInRoom(shortName);
-        if (takenItem != null) {
-            player.addItem(takenItem); // Add the item to the player's inventory
-        }
-        return takenItem;
+       return player.takeItem(shortName);
     }
 
     public Item dropItem(String shortName) {

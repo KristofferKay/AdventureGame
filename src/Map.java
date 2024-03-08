@@ -11,6 +11,7 @@ public class Map {
     private Room room9;
 
 
+    //create rooms, add items to the  rooms
     public Map() {
         room1 = new Room("Room 1",
                 "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ",
@@ -60,6 +61,7 @@ public class Map {
         buildMap();
     }
 
+    //add connections between the rooms
     public void buildMap() {
 
         room1.setEast(room2);

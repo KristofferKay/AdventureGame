@@ -58,6 +58,7 @@ public class UserInterface {
         System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(),
                 currentRoom.getDescription());
     }
+
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");
     }
@@ -68,10 +69,11 @@ public class UserInterface {
         System.out.println(currentRoom.getLongDescription());
     }
 
-    // if no room is near, this msg will display do
+    // if no room is near, this msg will display so
     public void noRoomMsg() {
         System.out.println("You cannot go there.");
     }
+
     public void helpMsg(){
         System.out.println("\033[1mHere's a list of commands\033[0m:\n" +
                 "* north/south/east/west or n/s/e/w - Move to a room in given direction \n" +
@@ -97,7 +99,7 @@ public class UserInterface {
 
     // method to move the player from room to rooms
     public boolean move(String userInput) {
-        String[] splitString = userInput.split(" ");
+        String[] splitString = userInput.split(" "); //for extracting take or drop
         String command = splitString[0].toLowerCase();
 
             switch (command) {
