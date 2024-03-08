@@ -3,12 +3,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-    // initiate scanner
     Scanner scanner = new Scanner(System.in);
-    // creates a obj from Adventure class
     Adventure adventure = new Adventure();
     PlaySound playSound = new PlaySound();
-    private Item item;
 
 
 
@@ -17,20 +14,26 @@ public class UserInterface {
 
         while(true){
             System.out.print("> ");
-            String command = scanner.nextLine().toLowerCase();
-            if(command.equals("exit")){
-                exit();
-                break;
-            } else if(command.equals("look")){
-                look();
-            } else if(command.equals("help")){
-                helpMsg();
-            } else if(command.equals("inventory") || command.equals("inv")){
-                inventory();
-            }else {
-                move(command);
+            String userInput = scanner.nextLine().toLowerCase();
+            String[] splitUserInput = userInput.split(" "); //for extracting take or drop
+            String editedCommand = splitUserInput[0].toLowerCase();
 
-            } //TODO add else if to capture mismatch from user
+            switch(editedCommand){
+                case "exit" -> {
+                    exit();
+                    return;
+                }
+                case "north", "n" -> goNorth();
+                case "south", "s" -> goSouth();
+                case "west", "w" -> goWest();
+                case "east", "e" -> goEast();
+                case "look" -> look();
+                case "help" -> helpMsg();
+                case "inventory", "inv" -> inventory();
+                case "take" -> takeItem(splitUserInput);
+                case "drop" -> dropItem(splitUserInput);
+                default -> System.out.println("Invalid command. Try again");
+            }
         }
     }
     // Runs the welcome messages
@@ -85,6 +88,7 @@ public class UserInterface {
                 "* drop -itemName - Drop the item\n" +
                 "\033[1m**********************************\033[0m");
     }
+
     public void inventory(){
         List<Item> playerItems = adventure.getInventory();
         if(!playerItems.isEmpty()){
@@ -96,45 +100,6 @@ public class UserInterface {
             System.out.println("Your bag is empty.");
         }
     }
-
-    // method to move the player from room to rooms
-    public boolean move(String userInput) {
-        String[] splitString = userInput.split(" "); //for extracting take or drop
-        String command = splitString[0].toLowerCase();
-
-            switch (command) {
-                case "north":
-                case "n":
-                    goNorth();
-                    break;
-                case "south":
-                case "s":
-                    goSouth();
-                    break;
-                case "west":
-                case "w":
-                    goWest();
-                    break;
-                case "east":
-                case "e":
-                    goEast();
-                    break;
-                case "take":
-                    takeItem(splitString);
-                    break;
-                case "drop":
-                    dropItem(splitString);
-                    break;
-                case "inventory":
-                    inventory();
-                    break;
-                default:
-                    System.out.println("Invalid command. Try again");
-                    break;
-            }
-        return true;
-    }
-
 
     private void takeItem(String[] splitString) {
             Item takeItem = adventure.takeItem(splitString[1]);

@@ -86,7 +86,7 @@ public class Player {
 
     private Item findItemInInventory(String shortName) {
         for (Item item : inventory) {
-            if (item.getShortName().equals(shortName)) {
+            if (item.getShortName().equalsIgnoreCase(shortName)) {
                 return item;
             }
         }

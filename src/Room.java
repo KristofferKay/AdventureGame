@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Room {
     private String name;
@@ -26,19 +27,18 @@ public class Room {
     }
 
     public void addItem(Item ... items){
-        for(Item item : items){
-            roomItems.add(item);
-        }
+        roomItems.addAll(Arrays.asList(items)); //adds all the items to inventory
     }
 
     public Item findItemInRoom(String shortName) {
         for (Item item : roomItems) {
-            if (item.getShortName().equals(shortName)) {
+            if (item.getShortName().equalsIgnoreCase(shortName)) {
                 return item;
             }
         }
         return null;
     }
+
     public Item removeItemInRoom(String shortName){
         Item item = findItemInRoom(shortName);
         roomItems.remove(item);

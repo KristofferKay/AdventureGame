@@ -22,14 +22,14 @@ public class Map {
                 "and through a metal door in the west.",
                 "Room with a dining table.");
         room2.addItem(new Item("kitchen knive", "A kitchen knive, small but quite sharp."),
-                new Item("cheese", "A piece of old stinking cheese."),
-                new Item("water", "A bottle filled with water."),
-                new Item("apple", "A fresh delicious apple."));
+                new Item("Cheese", "A piece of old stinking cheese."),
+                new Item("Water", "A bottle filled with water."),
+                new Item("Apple", "A fresh delicious apple."));
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
                 "Room - weapon storage.");
-        room3.addItem(new Item("One hand sword", "A sword for using in one hand, new and shiny."),
+        room3.addItem(new Item("Sword", "A sword for using in one hand, new and shiny."),
                 new Item("Shield", "A round metal shield with runes on it."),
                 new Item("Bow", "A light wooden bow"));
         room4 = new Room("Room 4",
