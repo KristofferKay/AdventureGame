@@ -92,9 +92,7 @@ public class Player {
         }
         return null;
     }
-
-    public Player currentHealth() {
-        System.out.println("Your health is ");
-        return null;
+    public int currentHealth(int health) {
+        return health;
     }
 }

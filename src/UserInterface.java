@@ -105,7 +105,22 @@ public class UserInterface {
     }
 
     public void health() {
-        adventure.health();
+        int health = 100;
+
+        if (health == 100) {
+            System.out.println("Your health is " + health + " you have full health");
+            adventure.health(health);
+        } else if (health == 50) {
+            System.out.println("Your health is " + health + " you have halft health");
+            adventure.health(health);
+        } else if (health == 20) {
+            System.out.println("Your health is " + health + " you should not fight, find something to eat to get more health");
+            adventure.health(health);
+        } else {
+            System.out.println("Your health is " + health + " you are dying");
+            adventure.health(health);
+        }
+
     }
 
     public void takeItem(String[] splitString) {
