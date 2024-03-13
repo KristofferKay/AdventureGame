@@ -22,9 +22,9 @@ public class Map {
                 "and through a metal door in the west.",
                 "Room with a dining table.");
         room2.addItem(new Item("kitchen knive", "A kitchen knive, small but quite sharp."),
-                new Food("Cheese", "A piece of old stinking cheese."),
-                new Food("Water", "A bottle filled with water."),
-                new Food("Apple", "A fresh delicious apple."));
+                new Food("Cheese", "A piece of old stinking cheese.", -10),
+                new Food("Water", "A bottle filled with water.", +5),
+                new Food("Apple", "A fresh delicious apple." +30));
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
