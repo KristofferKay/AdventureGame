@@ -33,6 +33,7 @@ public class UserInterface {
                 case "take" -> takeItem(splitUserInput);
                 case "drop" -> dropItem(splitUserInput);
                 case "health" -> health();
+                case "eat" -> eat(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -141,6 +142,12 @@ public class UserInterface {
             }
     }
 
+    public void eat(String[] splitString){
+        Food food = adventure.eat(splitString[1]);
+        if(food != null){
+            System.out.println("You just ate " + food.getShortName());
+        }
+    }
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();

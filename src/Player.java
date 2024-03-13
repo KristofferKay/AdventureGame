@@ -95,4 +95,20 @@ public class Player {
     public int currentHealth(int health) {
         return health;
     }
+
+    public void eat(String shortName){
+        Item foundItem = findItemInInventory(shortName);
+        if(foundItem == null){
+            foundItem = currentRoom.findItemInRoom(shortName);
+            if(foundItem.isFood()){
+               currentRoom.removeItemInRoom(shortName);
+               //TODO add healpoints
+            }
+        }else{
+            if(foundItem.isFood()){
+                inventory.remove(foundItem);
+                //TODO add healthpoints
+            }
+        }
+    }
 }
