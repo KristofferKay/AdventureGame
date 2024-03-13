@@ -32,6 +32,8 @@ public class UserInterface {
                 case "inventory", "inv" -> inventory();
                 case "take" -> takeItem(splitUserInput);
                 case "drop" -> dropItem(splitUserInput);
+                case "health" -> health();
+                case "eat" -> eat(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -49,8 +51,9 @@ public class UserInterface {
                 "                                                                              ");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
         System.out.println("To start the game, write one of the following: north, south, west, east.");
-        System.out.println("");
-        helpMsg();
+        System.out.println("Type help to get a list of commands.");
+        System.out.println("*************************************");
+
 //      Uncomment to play music, beaware ITS LOUD.
 //      PlaySoundMethod();
     }
@@ -86,6 +89,7 @@ public class UserInterface {
                 "* inventory/inv - See the list of items in your inventory\n" +
                 "* take -itemName - Take the item\n" +
                 "* drop -itemName - Drop the item\n" +
+                "* health - See your current health\n" +
                 "\033[1m**********************************\033[0m");
     }
 
@@ -101,7 +105,26 @@ public class UserInterface {
         }
     }
 
-    private void takeItem(String[] splitString) {
+    public void health() {
+        int health = 100;
+
+        if (health == 100) {
+            System.out.println("Your health is " + health + " you have full health");
+            adventure.health(health);
+        } else if (health == 50) {
+            System.out.println("Your health is " + health + " you have halft health");
+            adventure.health(health);
+        } else if (health == 20) {
+            System.out.println("Your health is " + health + " you should not fight, find something to eat to get more health");
+            adventure.health(health);
+        } else {
+            System.out.println("Your health is " + health + " you are dying");
+            adventure.health(health);
+        }
+
+    }
+
+    public void takeItem(String[] splitString) {
             Item takeItem = adventure.takeItem(splitString[1]);
             if (takeItem != null) {
                 System.out.println("You picked up " + takeItem.getShortName());
@@ -110,7 +133,7 @@ public class UserInterface {
             }
     }
 
-    private void dropItem(String[] splitString) {
+    public void dropItem(String[] splitString) {
             Item dropItem = adventure.dropItem(splitString[1]);
             if (dropItem != null) {
                 System.out.println("You dropped " + dropItem.getShortName());
@@ -119,6 +142,12 @@ public class UserInterface {
             }
     }
 
+    public void eat(String[] splitString){
+        Food food = adventure.eat(splitString[1]);
+        if(food != null){
+            System.out.println("You just ate " + food.getShortName());
+        }
+    }
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();

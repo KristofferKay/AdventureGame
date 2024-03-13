@@ -84,12 +84,31 @@ public class Player {
         inventory.remove(item);
     }
 
-    private Item findItemInInventory(String shortName) {
+    public Item findItemInInventory(String shortName) {
         for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(shortName)) {
                 return item;
             }
         }
         return null;
+    }
+    public int currentHealth(int health) {
+        return health;
+    }
+
+    public void eat(String shortName){
+        Item foundItem = findItemInInventory(shortName);
+        if(foundItem == null){
+            foundItem = currentRoom.findItemInRoom(shortName);
+            if(foundItem.isFood()){
+               currentRoom.removeItemInRoom(shortName);
+               //TODO add healpoints
+            }
+        }else{
+            if(foundItem.isFood()){
+                inventory.remove(foundItem);
+                //TODO add healthpoints
+            }
+        }
     }
 }
