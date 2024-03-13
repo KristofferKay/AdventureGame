@@ -100,26 +100,31 @@ public class Player {
         return health;
     }
 
-    public Food eat(String shortName){
+    public String eat(String shortName){
         Item foundItem = findItemInInventory(shortName);
         if(foundItem == null){ //item is not found in the player's inventory
             foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
-            if(foundItem != null && foundItem.isFood()){//if the item is found in the rom and it's food
-               currentRoom.removeItemInRoom(shortName);
-               health = health + ((Food) foundItem).getHealthPoints();
-               return (Food)foundItem;
+            if(foundItem != null){//if the item is found in the rom and it's food
+                if(foundItem.isFood()){
+                    currentRoom.removeItemInRoom(shortName);
+                    health = health + ((Food) foundItem).getHealthPoints();
+                    return "eaten";
+                }else{
+                    return "not eatable";
+                }
+
             }else{
-                return null;
+                return "does not exist";
             }
         }else{ //the item is in the inventory
             if(foundItem.isFood()){
                 inventory.remove(foundItem);
                 health = health + ((Food) foundItem).getHealthPoints();
-                return (Food) foundItem;
+                return "eaten";
+            }else{
+                return "not eatable";
             }
-        }
-        return null;
-    }
+        }}
 
 
     public void setHealth(int health) {

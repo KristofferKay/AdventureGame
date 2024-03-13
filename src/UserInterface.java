@@ -139,11 +139,12 @@ public class UserInterface {
     }
 
     public void eat(String[] splitString){
-        Food food = adventure.eat(splitString[1]);
-        if(food != null){
-            System.out.println("You just ate " + food.getShortName());
-        }else{
-            System.out.println("You cannot eat this, it either does not exist or not eatable"); //TODO add more precise message depending on the reason
+        String foodName = splitString[1];
+        String response = adventure.eat(foodName);
+        switch (response){
+            case "eaten" -> System.out.println("You ate " + foodName);
+            case "not eatable" -> System.out.println("You cannot eat this item, it is not eatable");
+            case "does not exist" -> System.out.println("This food is neither in your bag nor in the room");
         }
     }
 
