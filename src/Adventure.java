@@ -46,4 +46,8 @@ public class Adventure {
         return player.currentHealth(health);
     }
 
+    public Food eat(String shortName){
+        return player.eat(shortName);
+    }
+
 }
