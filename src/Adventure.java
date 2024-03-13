@@ -42,8 +42,8 @@ public class Adventure {
         return player.dropItem(shortName);
     }
 
-    public int health(int health){
-        return player.currentHealth(health);
+    public int health(){
+        return player.currentHealth();
     }
 
     public Food eat(String shortName){

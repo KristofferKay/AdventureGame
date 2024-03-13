@@ -106,20 +106,16 @@ public class UserInterface {
     }
 
     public void health() {
-        int health = 100;
+        int health = adventure.health();
 
         if (health == 100) {
-            System.out.println("Your health is " + health + " you have full health");
-            adventure.health(health);
-        } else if (health == 50) {
-            System.out.println("Your health is " + health + " you have halft health");
-            adventure.health(health);
-        } else if (health == 20) {
-            System.out.println("Your health is " + health + " you should not fight, find something to eat to get more health");
-            adventure.health(health);
+            System.out.println("Your health is " + health + ". You have full health.");
+        } else if (health > 50 && health < 100) {
+            System.out.println("Your health is " + health + ". You still have good health.");
+        } else if (health < 50 && health > 20) {
+            System.out.println("Your health is " + health + ". You should not fight, find something to eat to get more health.");
         } else {
-            System.out.println("Your health is " + health + " you are dying");
-            adventure.health(health);
+            System.out.println("Your health is " + health + ". You are dying.");
         }
 
     }
@@ -146,6 +142,8 @@ public class UserInterface {
         Food food = adventure.eat(splitString[1]);
         if(food != null){
             System.out.println("You just ate " + food.getShortName());
+        }else{
+            System.out.println("You cannot eat this, it either does not exist or not eatable"); //TODO add more precise message depending on the reason
         }
     }
 

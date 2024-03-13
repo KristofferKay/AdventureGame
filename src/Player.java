@@ -5,10 +5,13 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
 
+    private int health;
+
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
+        health = 100;
     }
 
     public Room goNorth() {
@@ -93,7 +96,7 @@ public class Player {
         }
         return null;
     }
-    public int currentHealth(int health) {
+    public int currentHealth() {
         return health;
     }
 
@@ -103,18 +106,23 @@ public class Player {
             foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
             if(foundItem != null && foundItem.isFood()){//if the item is found in the rom and it's food
                currentRoom.removeItemInRoom(shortName);
-               return (Food) foundItem;
-               //TODO add healpoints
+               health = health + ((Food) foundItem).getHealthPoints();
+               return (Food)foundItem;
             }else{
                 return null;
             }
         }else{ //the item is in the inventory
             if(foundItem.isFood()){
                 inventory.remove(foundItem);
+                health = health + ((Food) foundItem).getHealthPoints();
                 return (Food) foundItem;
-                //TODO add healthpoints
             }
         }
         return null;
+    }
+
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 }
