@@ -108,7 +108,7 @@ public class UserInterface {
     public void health() {
         int health = adventure.health();
 
-        if (health == 100) {
+        if (health >= 100) {
             System.out.println("Your health is " + health + ". You have full health.");
         } else if (health > 50 && health < 100) {
             System.out.println("Your health is " + health + ". You still have good health.");
