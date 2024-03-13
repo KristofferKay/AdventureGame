@@ -5,6 +5,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
 
+
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
@@ -96,19 +97,24 @@ public class Player {
         return health;
     }
 
-    public void eat(String shortName){
+    public Food eat(String shortName){
         Item foundItem = findItemInInventory(shortName);
-        if(foundItem == null){
-            foundItem = currentRoom.findItemInRoom(shortName);
-            if(foundItem.isFood()){
+        if(foundItem == null){ //item is not found in the player's inventory
+            foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
+            if(foundItem != null && foundItem.isFood()){//if the item is found in the rom and it's food
                currentRoom.removeItemInRoom(shortName);
+               return (Food) foundItem;
                //TODO add healpoints
+            }else{
+                return null;
             }
-        }else{
+        }else{ //the item is in the inventory
             if(foundItem.isFood()){
                 inventory.remove(foundItem);
+                return (Food) foundItem;
                 //TODO add healthpoints
             }
         }
+        return null;
     }
 }
