@@ -84,12 +84,17 @@ public class Player {
         inventory.remove(item);
     }
 
-    private Item findItemInInventory(String shortName) {
+    public Item findItemInInventory(String shortName) {
         for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(shortName)) {
                 return item;
             }
         }
+        return null;
+    }
+
+    public Player currentHealth() {
+        System.out.println("Your health is ");
         return null;
     }
 }

@@ -31,8 +31,8 @@ public class UserInterface {
                 case "help" -> helpMsg();
                 case "inventory", "inv" -> inventory();
                 case "take" -> takeItem(splitUserInput);
-                case "drop" -> dropItem(splitUserInput)
-                case "health" -> health(splitUserInput);
+                case "drop" -> dropItem(splitUserInput);
+                case "health" -> health();
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -88,7 +88,7 @@ public class UserInterface {
                 "* inventory/inv - See the list of items in your inventory\n" +
                 "* take -itemName - Take the item\n" +
                 "* drop -itemName - Drop the item\n" +
-                "* health - See your current health" +
+                "* health - See your current health\n" +
                 "\033[1m**********************************\033[0m");
     }
 
@@ -104,8 +104,8 @@ public class UserInterface {
         }
     }
 
-    public void health(String[] splitString) {
-
+    public void health() {
+        adventure.health();
     }
 
     public void takeItem(String[] splitString) {

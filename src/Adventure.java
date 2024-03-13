@@ -42,4 +42,8 @@ public class Adventure {
         return player.dropItem(shortName);
     }
 
+    public Player health(){
+        return player.currentHealth();
+    }
+
 }
