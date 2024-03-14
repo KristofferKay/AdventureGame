@@ -112,7 +112,6 @@ public class Player {
                 }else{
                     return "not eatable";
                 }
-
             }else{
                 return "does not exist";
             }
@@ -125,8 +124,6 @@ public class Player {
                 return "not eatable";
             }
         }}
-
-
     public void setHealth(int health) {
         this.health = health;
     }

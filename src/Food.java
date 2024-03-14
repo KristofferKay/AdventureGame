@@ -9,6 +9,4 @@ public class Food extends Item {
     public int getHealthPoints () {
         return healthPoints;
     }
-
-
 }

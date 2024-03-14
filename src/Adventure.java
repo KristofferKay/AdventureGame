@@ -35,7 +35,7 @@ public class Adventure {
     }
 
     public Item takeItem(String shortName) {
-       return player.takeItem(shortName);
+        return player.takeItem(shortName);
     }
 
     public Item dropItem(String shortName) {

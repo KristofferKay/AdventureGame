@@ -27,34 +27,42 @@ public class Map {
                 new Food("Apple", "A fresh delicious apple.",10),
                 new Food("Akvavit", "A bottle of akvavit, tastes horrible and just makes you drunk.", -30),
                 new Food("Poison", "Probably deadful.", -80));
+
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
                 "Room - weapon storage.");
         room3.addItem(new Item("Sword", "A sword for using in one hand, new and shiny."),
                 new Item("Shield", "A round metal shield with runes on it."),
-                new Item("Bow", "A light wooden bow"));
+                new Item("Bow", "A light wooden bow"),
+                new Item("Armour", "Get some protection"));
+
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
                 "Grab it and continue either throw a metal door in the north, or through a passage in the south.",
                 "Room - library.");
+
         room5 = new Room("Room 5",
                 "Right after the door there is a stairs going down to a dungeon. There is blue light in the darkness. Probably it is a portal?",
                 "Secret room with a portal.");
+
         room6 = new Room("Room 6",
                 "Looks like you are in trouble. Right after you enter the room you got attacked by a bunch of skeletons," +
                 "armoured with rusty but sharp swords. Fight if you can or run - the room has two doors: one in the north and one in the south.",
                 "Room with skeletons.");
+
         room7 = new Room("Room 7",
                 "It looks like a hall for big gatherings, as it has a tribune and many " +
                 "wooden chairs. You can notice an old man, sitting quietly in the corner." +
                 "There is a passage going north, and a nicely decorated room in the east side of the hall.",
                 "Big hall room.");
+
         room8 = new Room("Room 8",
                 "It's hot in here! thanks to a dragon, which sits on a huge chest and exhales fire. " +
                 "The dragon is obviously not in a friendly mood. You can escape it through a decorated door leading to the west, and a wooden door towards the east. There is also a large " +
                 "metal gate in the northern side of the room, but it has a lock on it.",
                 "Room with a dragon and a chest.");
+
         room9 = new Room("Room 9",
                 "It is a very dark room, you literally cannot see anything. But after you lit up a match it gets possible to notice a door in the northes" +
                 "side of the room, and also a door towards the west. But wait with leaving - you are not alone in the room." +
@@ -89,8 +97,8 @@ public class Map {
         return room1;
     }
 
-    public void setRoom1(Room r1) {
-        this.room1 = r1;
+    public void setRoom1(Room room1) {
+        this.room1 = room1;
     }
 
     public Room getRoom2() {

@@ -7,11 +7,8 @@ public class UserInterface {
     Adventure adventure = new Adventure();
     PlaySound playSound = new PlaySound();
 
-
-
     public void startGame() {
         intro();
-
         while(true){
             System.out.print("> ");
             String userInput = scanner.nextLine().toLowerCase();
@@ -38,9 +35,9 @@ public class UserInterface {
             }
         }
     }
+
     // Runs the welcome messages
     public void intro(){
-
         System.out.println("");
         System.out.println("             _                 _                   _____                      \n" +
                 "    /\\      | |               | |                 / ____|                     \n" +
@@ -61,10 +58,8 @@ public class UserInterface {
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         Room currentRoom = adventure.getPlayer().getCurrentRoom();
-        System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(),
-                currentRoom.getDescription());
+        System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(),currentRoom.getDescription());
     }
-
     public void exit(){
         System.out.println("Exiting game, thanks for playing...");
     }
@@ -74,10 +69,9 @@ public class UserInterface {
         System.out.println("Looking around...");
         System.out.println(currentRoom.getLongDescription());
     }
-
     // if no room is near, this msg will display so
     public void noRoomMsg() {
-        System.out.println("You cannot go there.");
+        System.out.println("You cannot go there. Try again.");
     }
 
     public void helpMsg(){
@@ -98,7 +92,7 @@ public class UserInterface {
         if(!playerItems.isEmpty()){
             System.out.println("You have these items in your bag:");
             for(Item item : playerItems){
-                System.out.println(item.getShortName());
+                System.out.println("- " + item.getShortName());
             }
         }else{
             System.out.println("Your bag is empty.");
@@ -109,7 +103,7 @@ public class UserInterface {
         int health = adventure.health();
 
         if (health >= 100) {
-            System.out.println("Your health is " + health + ". You have full health.");
+            System.out.println("Your health is " + health + " You have full health.");
         } else if (health > 50 && health < 100) {
             System.out.println("Your health is " + health + ". You still have good health.");
         } else if (health < 50 && health > 20) {
@@ -117,25 +111,24 @@ public class UserInterface {
         } else {
             System.out.println("Your health is " + health + ". You are dying.");
         }
-
     }
 
     public void takeItem(String[] splitString) {
-            Item takeItem = adventure.takeItem(splitString[1]);
-            if (takeItem != null) {
-                System.out.println("You picked up " + takeItem.getShortName());
-            } else {
-                System.out.println("There are no " + splitString[1] + " in the room");
-            }
+        Item takeItem = adventure.takeItem(splitString[1]);
+        if (takeItem != null) {
+            System.out.println("You picked up " + takeItem.getShortName());
+        } else {
+            System.out.println("There are no " + splitString[1] + " in the room");
+        }
     }
 
     public void dropItem(String[] splitString) {
-            Item dropItem = adventure.dropItem(splitString[1]);
-            if (dropItem != null) {
-                System.out.println("You dropped " + dropItem.getShortName());
-            } else {
-                System.out.println("There are no " + splitString[1] + " in your inventory");
-            }
+        Item dropItem = adventure.dropItem(splitString[1]);
+        if (dropItem != null) {
+            System.out.println("You dropped " + dropItem.getShortName());
+        } else {
+            System.out.println("There are no " + splitString[1] + " in your inventory");
+        }
     }
 
     public void eat(String[] splitString){
@@ -157,7 +150,6 @@ public class UserInterface {
             noRoomMsg();
         }
     }
-
     public void goSouth(){
         Room southernRoom = adventure.goSouth();
         if(southernRoom != null){
@@ -193,4 +185,3 @@ public class UserInterface {
 //        PlaySound.afspilLydfil(lydfilSti);
 //    }
 }
-
