@@ -31,6 +31,7 @@ public class UserInterface {
                 case "drop" -> dropItem(splitUserInput);
                 case "health" -> health();
                 case "eat" -> eat(splitUserInput);
+                case "drink" -> drink(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -48,13 +49,12 @@ public class UserInterface {
                 "                                                                              ");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
         System.out.println("To start the game, write one of the following: north, south, west, east.");
-        System.out.println("Type help to get a list of commands.");
+        System.out.println("Type help to get a list of commands");
         System.out.println("*************************************");
 
 //      Uncomment to play music, beaware ITS LOUD.
 //      PlaySoundMethod();
     }
-
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         Room currentRoom = adventure.getPlayer().getCurrentRoom();
@@ -139,6 +139,16 @@ public class UserInterface {
             case "eaten" -> System.out.println("You ate " + foodName);
             case "not eatable" -> System.out.println("You cannot eat this item, it is not eatable");
             case "does not exist" -> System.out.println("This food is neither in your bag nor in the room");
+        }
+    }
+
+    public void drink(String[] splitString){
+        String drinkName = splitString[1];
+        String response = adventure.drink(drinkName);
+        switch (response){
+            case "drink" -> System.out.println("You drank " + drinkName);
+            case "not drinkable" -> System.out.println("You cannot drink this item, it is not drinkable");
+            case "does not exist" -> System.out.println("This bottle is neither in your bag nor in the room");
         }
     }
 

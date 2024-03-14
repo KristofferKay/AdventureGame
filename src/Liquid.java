@@ -1,5 +1,12 @@
 public class Liquid extends Consumables{
-    public Liquid(String shortName, String longName) {
-        super(shortName, longName);
+    private int healthPoints;
+    public Liquid(String shortName, String description, int healthPoints) {
+        super(shortName, description, healthPoints);
+        this.healthPoints=healthPoints;
     }
+
+    public boolean isLiquid(){
+        return this instanceof Liquid;
+    }
+
 }

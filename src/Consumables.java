@@ -1,6 +1,11 @@
 public class Consumables extends Item {
-    public Consumables(String shortName, String longName) {
-        super(shortName, longName);
-    }
+    private int healthPoints;
 
+    public Consumables(String shortName, String description, int healthPoints) {
+        super(shortName, description);
+        this.healthPoints=healthPoints;
+    }
+    public int getHealthPoints () {
+        return healthPoints;
+    }
 }

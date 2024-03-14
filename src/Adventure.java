@@ -50,4 +50,8 @@ public class Adventure {
         return player.eat(shortName);
     }
 
+    public String drink(String shortName){
+        return player.drink(shortName);
+    }
+
 }

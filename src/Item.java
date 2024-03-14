@@ -28,8 +28,4 @@ public class Item {
         return shortName;
     }
 
-    public boolean isFood(){
-        return this instanceof Food;
-    }
-
 }

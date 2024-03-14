@@ -105,7 +105,7 @@ public class Player {
         if(foundItem == null){ //item is not found in the player's inventory
             foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
             if(foundItem != null){//if the item is found in the rom and it's food
-                if(foundItem.isFood()){
+                if(((Food) foundItem).isFood()){
                     currentRoom.removeItemInRoom(shortName);
                     health = health + ((Food) foundItem).getHealthPoints();
                     return "eaten";
@@ -116,14 +116,42 @@ public class Player {
                 return "does not exist";
             }
         }else{ //the item is in the inventory
-            if(foundItem.isFood()){
+            if(((Food) foundItem).isFood()){
                 inventory.remove(foundItem);
                 health = health + ((Food) foundItem).getHealthPoints();
                 return "eaten";
             }else{
                 return "not eatable";
             }
-        }}
+        }
+    }
+
+    public String drink(String shortName){
+        Item foundItem = findItemInInventory(shortName);
+        if(foundItem == null){ //item is not found in the player's inventory
+            foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
+            if(foundItem != null){//if the item is found in the rom and it's food
+                if(((Liquid) foundItem).isLiquid()){
+                    currentRoom.removeItemInRoom(shortName);
+                    health = health + ((Liquid) foundItem).getHealthPoints();
+                    return "drink";
+                }else{
+                    return "not drinkable";
+                }
+            }else{
+                return "does not exist";
+            }
+        }else{ //the item is in the inventory
+            if(((Liquid) foundItem).isLiquid()){
+                inventory.remove(foundItem);
+                health = health + ((Liquid) foundItem).getHealthPoints();
+                return "drink";
+            }else{
+                return "not drinkable";
+            }
+        }
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }
