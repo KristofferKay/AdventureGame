@@ -76,15 +76,16 @@ public class UserInterface {
 
     public void helpMsg(){
         System.out.println("\033[1mHere's a list of commands\033[0m:\n" +
-                "* north/south/east/west or n/s/e/w - Move to a room in given direction \n" +
-                "* exit - Exit out of the game \n" +
-                "* look - Look around your current room\n" +
-                "* help - Get a list of commands\n" +
-                "* inventory/inv - See the list of items in your inventory\n" +
-                "* take -itemName - Take the item\n" +
-                "* drop -itemName - Drop the item\n" +
-                "* health - See your current health\n" +
-                "\033[1m**********************************\033[0m");
+                "Commands:                              Description of command\n" +
+                "* north/south/east/west or n/s/e/w     - Move to a room in given direction \n" +
+                "* exit                                 - Exit out of the game \n" +
+                "* look                                 - Look around your current room\n" +
+                "* help                                 - Get a list of commands\n" +
+                "* inventory/inv                        - See the list of items in your inventory\n" +
+                "* take                                 - Take the item\n" +
+                "* drop                                 - Drop the item\n" +
+                "* health                               - See your current health\n" +
+                "\033[1m**********************************************************************************\033[0m");
     }
 
     public void inventory(){
