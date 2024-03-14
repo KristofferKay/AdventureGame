@@ -135,7 +135,11 @@ public class UserInterface {
     public void eat(String[] splitString){
         String foodName = splitString[1];
         String response = adventure.eat(foodName);
+
         switch (response){
+            case "poisonous" -> {System.out.println("This doesn’t look healthy, are you sure you want to eat it?");
+            }
+
             case "eaten" -> System.out.println("You ate " + foodName);
             case "not eatable" -> System.out.println("You cannot eat this item, it is not eatable");
             case "does not exist" -> System.out.println("This food is neither in your bag nor in the room");
