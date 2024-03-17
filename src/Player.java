@@ -1,3 +1,4 @@
+import items.food.Consumables;
 import items.food.Food;
 import items.Item;
 import items.food.Liquid;
@@ -104,56 +105,34 @@ public class Player {
         return health;
     }
 
-    public String eat(String shortName){
-        Item foundItem = findItemInInventory(shortName);
-        if(foundItem == null){ //item is not found in the player's inventory
-            foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
-            if(foundItem != null){//if the item is found in the rom and it's food
-                if(((Food) foundItem).isFood()){
-                    currentRoom.removeItemInRoom(shortName);
-                    health = health + ((Food) foundItem).getHealthPoints();
-                    return "eaten";
-                }else{
-                    return "not eatable";
-                }
-            }else{
-                return "does not exist";
-            }
-        }else{ //the item is in the inventory
-            if(((Food) foundItem).isFood()){
-                inventory.remove(foundItem);
-                health = health + ((Food) foundItem).getHealthPoints();
-                return "eaten";
-            }else{
-                return "not eatable";
-            }
-        }
-    }
 
-    public String drink(String shortName){
+    public String consume(String shortName){
         Item foundItem = findItemInInventory(shortName);
         if(foundItem == null){ //item is not found in the player's inventory
             foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
-            if(foundItem != null){//if the item is found in the rom and it's food
-                if(((Liquid) foundItem).isLiquid()){
+            if(foundItem != null){//if the item is found in the room, and it's consumable
+                if(foundItem.isConsumable()){
                     currentRoom.removeItemInRoom(shortName);
-                    health = health + ((Liquid) foundItem).getHealthPoints();
-                    return "drink";
+                    health = health + ((Consumables) foundItem).getHealthPoints();
+                    if(((Consumables) foundItem).isFood())return "eaten";
+                    if(((Consumables) foundItem).isLiquid()) return "drunken";
                 }else{
-                    return "not drinkable";
+                    return "not consumable";
                 }
             }else{
                 return "does not exist";
             }
         }else{ //the item is in the inventory
-            if(((Liquid) foundItem).isLiquid()){
+            if(foundItem.isConsumable()){
                 inventory.remove(foundItem);
-                health = health + ((Liquid) foundItem).getHealthPoints();
-                return "drink";
+                health = health + ((Consumables) foundItem).getHealthPoints();
+                if(((Consumables) foundItem).isFood()) return "eaten";
+                if(((Consumables) foundItem).isLiquid()) return "drunken";
             }else{
-                return "not drinkable";
+                return "not consumable";
             }
         }
+        return "";
     }
 
     public void setHealth(int health) {

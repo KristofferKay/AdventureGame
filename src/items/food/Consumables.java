@@ -12,4 +12,13 @@ public class Consumables extends Item {
     public int getHealthPoints () {
         return healthPoints;
     }
+
+    public boolean isFood(){
+        return this instanceof Food;
+    }
+
+    public boolean isLiquid(){
+        return this instanceof Liquid;
+    }
+
 }

@@ -48,12 +48,8 @@ public class Adventure {
         return player.currentHealth();
     }
 
-    public String eat(String shortName){
-        return player.eat(shortName);
-    }
 
-    public String drink(String shortName){
-        return player.drink(shortName);
+    public String consume(String shortName){
+        return player.consume(shortName);
     }
-
 }

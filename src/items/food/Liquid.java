@@ -6,8 +6,4 @@ public class Liquid extends Consumables {
         super(shortName, description, healthPoints);
     }
 
-    public boolean isLiquid(){
-        return this instanceof Liquid;
-    } //TODO it always returns true, should be placed either in Item or in Consumables
-
 }

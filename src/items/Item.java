@@ -33,9 +33,8 @@ public class Item {
         return shortName;
     }
 
-    public boolean isFood(){
+    public boolean isConsumable(){
         return this instanceof Consumables;
     }
-
 
 }

@@ -31,8 +31,7 @@ public class UserInterface {
                 case "take" -> takeItem(splitUserInput);
                 case "drop" -> dropItem(splitUserInput);
                 case "health" -> health();
-                case "eat" -> eat(splitUserInput);
-                case "drink" -> drink(splitUserInput);
+                case "eat", "drink" -> consume(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -54,7 +53,7 @@ public class UserInterface {
         System.out.println("*************************************");
 
 //      Uncomment to play music, beaware ITS LOUD.
-      PlaySoundMethod();
+      //PlaySoundMethod();
     }
     // println for currentroom that the player is in
     public void currentRoomPrint() {
@@ -133,29 +132,21 @@ public class UserInterface {
         }
     }
 
-    public void eat(String[] splitString){
-        String foodName = splitString[1];
-        String response = adventure.eat(foodName);
+    public void consume(String[] splitString){
+        String consumableName = splitString[1];
+        String response = adventure.consume(consumableName);
 
         switch (response){
             case "poisonous" -> {System.out.println("This doesn’t look healthy, are you sure you want to eat it?");
             }
 
-            case "eaten" -> System.out.println("You ate " + foodName);
-            case "not eatable" -> System.out.println("You cannot eat this item, it is not eatable");
+            case "eaten" -> System.out.println("You ate " + consumableName);
+            case "drunken" -> System.out.println("You drank " + consumableName);
+            case "not consumable" -> System.out.println("You cannot consume this item, it is neither food nor liquid");
             case "does not exist" -> System.out.println("This food is neither in your bag nor in the room");
         }
     }
 
-    public void drink(String[] splitString){
-        String drinkName = splitString[1];
-        String response = adventure.drink(drinkName);
-        switch (response){
-            case "drink" -> System.out.println("You drank " + drinkName);
-            case "not drinkable" -> System.out.println("You cannot drink this item, it is not drinkable");
-            case "does not exist" -> System.out.println("This bottle is neither in your bag nor in the room");
-        }
-    }
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();
