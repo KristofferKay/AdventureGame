@@ -139,11 +139,11 @@ public class Player {
         this.health = health;
     }
 
-    public void equip(String shortName){
+    public static void equip(String shortName){
 
     }
 
-    public void attack(){
+    public static void attack(){
 
     }
 }
