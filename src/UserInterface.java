@@ -32,6 +32,8 @@ public class UserInterface {
                 case "drop" -> dropItem(splitUserInput);
                 case "health" -> health();
                 case "eat", "drink" -> consume(splitUserInput);
+                case "equip" -> equip(splitUserInput);
+                case "attack" -> attack();
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -147,6 +149,13 @@ public class UserInterface {
         }
     }
 
+    public void equip(String [] splitString){
+
+    }
+
+    public void attack(){
+
+    }
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();

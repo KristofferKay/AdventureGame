@@ -138,4 +138,12 @@ public class Player {
     public void setHealth(int health) {
         this.health = health;
     }
+
+    public void equip(String shortName){
+
+    }
+
+    public void attack(){
+
+    }
 }

@@ -52,4 +52,12 @@ public class Adventure {
     public String consume(String shortName){
         return player.consume(shortName);
     }
+
+    public void equip(String shortName){
+        player.equip(shortName);
+    }
+
+    public void attack(){
+        player.attack();
+    }
 }
