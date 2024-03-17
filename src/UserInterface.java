@@ -1,4 +1,5 @@
 import items.Item;
+import items.weapons.Weapon;
 
 import java.util.List;
 import java.util.Scanner;
@@ -160,9 +161,6 @@ public class UserInterface {
         }
     }
 
-    public void attack(){
-
-    }
 
     public void goNorth(){
         Room northernRoom = adventure.goNorth();
@@ -203,6 +201,9 @@ public class UserInterface {
         }
     }
 
+    public void attack() {
+        Player.attack();
+    }
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
         PlaySound.afspilLydfil(lydfilSti);

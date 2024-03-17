@@ -4,9 +4,13 @@ public class RangedWeapon extends Weapon{
 
     private int numberOfUses;
 
-    public RangedWeapon(String shortName, String longName) {
+    public RangedWeapon(String shortName, String longName, int numberOfUses) {
         super(shortName, longName);
-        numberOfUses = 10;
+        this.numberOfUses = numberOfUses;
+    }
+
+    public int getNumberOfUses(){
+        return numberOfUses;
     }
 
     public boolean canUse(){
