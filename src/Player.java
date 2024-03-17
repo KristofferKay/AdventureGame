@@ -1,13 +1,13 @@
 import items.food.Consumables;
-import items.food.Food;
 import items.Item;
-import items.food.Liquid;
+import items.weapons.Weapon;
 
 import java.util.ArrayList;
 
 public class Player {
 
     private Room currentRoom;
+    private Weapon currentWeapon;
     private ArrayList<Item> inventory;
 
     private int health;
@@ -67,7 +67,7 @@ public class Player {
 
         Item takenItem = currentRoom.removeItemInRoom(shortName);
         if (takenItem != null) {
-            addItem(takenItem); // Add the item to the player's inventory
+            addItemToInventory(takenItem); // Add the item to the player's inventory
         }
         return takenItem;
     }
@@ -75,7 +75,7 @@ public class Player {
     public Item dropItem(String shortName) {
         Item droppedItem = findItemInInventory(shortName);
         if (droppedItem != null) {
-            removeItem(droppedItem);
+            removeItemFromInventory(droppedItem);
             getCurrentRoom().addItem(droppedItem);
         }
         return droppedItem;
@@ -85,11 +85,11 @@ public class Player {
         return inventory;
     }
 
-    public void addItem(Item item) {
+    public void addItemToInventory(Item item) {
         inventory.add(item);
     }
 
-    public void removeItem(Item item) {
+    public void removeItemFromInventory(Item item) {
         inventory.remove(item);
     }
 
@@ -135,12 +135,19 @@ public class Player {
         return "";
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public String equip(String shortName){
+        Item foundItem = findItemInInventory(shortName);
+        if(foundItem == null) return "does not exist";
+        if(foundItem instanceof Weapon){
+            currentWeapon = (Weapon) foundItem;
+            return "equipped";
+        }else{
+            return "not a weapon";
+        }
     }
 
-    public void equip(String shortName){
-
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public void attack(){

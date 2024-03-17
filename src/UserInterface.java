@@ -95,7 +95,7 @@ public class UserInterface {
         if(!playerItems.isEmpty()){
             System.out.println("You have these items in your bag:");
             for(Item item : playerItems){
-                System.out.println("- " + item.getShortName());
+                    System.out.println("- " + item.getShortName());
             }
         }else{
             System.out.println("Your bag is empty.");
@@ -144,13 +144,20 @@ public class UserInterface {
 
             case "eaten" -> System.out.println("You ate " + consumableName);
             case "drunken" -> System.out.println("You drank " + consumableName);
-            case "not consumable" -> System.out.println("You cannot consume this item, it is neither food nor liquid");
-            case "does not exist" -> System.out.println("This food is neither in your bag nor in the room");
+            case "not consumable" -> System.out.println("You cannot consume this item, it is neither food nor liquid.");
+            case "does not exist" -> System.out.println("This food is neither in your bag nor in the room.");
         }
     }
 
     public void equip(String [] splitString){
+        String weaponName = splitString[1];
+        String response = adventure.equip(weaponName);
 
+        switch (response){
+            case "does not exist" -> System.out.println("This weapon is not in your inventory");
+            case "equipped" -> System.out.println("You have equipped " + weaponName);
+            case "not a weapon" -> System.out.println("You cannot equip this item, it's not a weapon.");
+        }
     }
 
     public void attack(){

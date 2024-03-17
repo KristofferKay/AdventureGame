@@ -1,6 +1,8 @@
 import items.food.Food;
 import items.Item;
 import items.food.Liquid;
+import items.weapons.MeleeWeapon;
+import items.weapons.RangedWeapon;
 
 public class Map {
 
@@ -36,10 +38,10 @@ public class Map {
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
                 "Room - weapon storage.");
-        room3.addItem(new Item("Sword", "A sword for using in one hand, new and shiny."),
-                new Item("Shield", "A round metal shield with runes on it."),
-                new Item("Bow", "A light wooden bow"),
-                new Item("Armour", "Get some protection"));
+        room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny."),
+                new MeleeWeapon("Shield", "A round metal shield with runes on it."),
+                new RangedWeapon("Bow", "A light wooden bow"),
+                new MeleeWeapon("Armour", "Get some protection"));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
