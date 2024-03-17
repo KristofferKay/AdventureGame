@@ -1,3 +1,7 @@
+import items.food.Food;
+import items.Item;
+import items.food.Liquid;
+
 import java.util.ArrayList;
 
 public class Player {

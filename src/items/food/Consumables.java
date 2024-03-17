@@ -1,3 +1,7 @@
+package items.food;
+
+import items.Item;
+
 public class Consumables extends Item {
     private int healthPoints;
 

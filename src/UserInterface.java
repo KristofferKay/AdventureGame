@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+import items.Item;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class UserInterface {
         System.out.println("*************************************");
 
 //      Uncomment to play music, beaware ITS LOUD.
-//      PlaySoundMethod();
+      PlaySoundMethod();
     }
     // println for currentroom that the player is in
     public void currentRoomPrint() {
@@ -195,8 +196,8 @@ public class UserInterface {
         }
     }
 
-//    public void PlaySoundMethod() {
-//        String lydfilSti = "/introsound.wav";
-//        PlaySound.afspilLydfil(lydfilSti);
-//    }
+    public void PlaySoundMethod() {
+        String lydfilSti = "introsound.wav";
+        PlaySound.afspilLydfil(lydfilSti);
+    }
 }

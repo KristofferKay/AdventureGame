@@ -1,3 +1,7 @@
+import items.food.Food;
+import items.Item;
+import items.food.Liquid;
+
 public class Map {
 
     private Room room1;

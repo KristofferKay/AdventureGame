@@ -1,3 +1,8 @@
+package items;
+
+import items.food.Consumables;
+import items.food.Food;
+
 public class Item {
     private String shortName;
     private String longName;
@@ -27,5 +32,10 @@ public class Item {
     public String toString() {
         return shortName;
     }
+
+    public boolean isFood(){
+        return this instanceof Consumables;
+    }
+
 
 }
