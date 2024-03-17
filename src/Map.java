@@ -40,7 +40,7 @@ public class Map {
                 "Room - weapon storage.");
         room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny."),
                 new MeleeWeapon("Shield", "A round metal shield with runes on it."),
-                new RangedWeapon("Bow", "A light wooden bow"),
+                new RangedWeapon("Bow", "A light wooden bow", 10),
                 new MeleeWeapon("Armour", "Get some protection"));
 
         room4 = new Room("Room 4",
