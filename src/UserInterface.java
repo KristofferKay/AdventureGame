@@ -202,7 +202,19 @@ public class UserInterface {
     }
 
     public void attack() {
-        adventure.attack();
+        if currentWeapon( != null){
+            if (currentWeapon instanceof RangedWeapon) {
+                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
+                if (rangedWeapon.canUse()) {
+                    System.out.println(currentWeapon.getShortName());
+                    rangedWeapon.getNumberOfUses();
+                } else if (currentWeapon instanceof MeleeWeapon) {
+                    System.out.println(currentWeapon.getShortName);
+                    {
+                    }
+                }
+            }
+        }
     }
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
