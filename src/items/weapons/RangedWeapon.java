@@ -10,7 +10,11 @@ public class RangedWeapon extends Weapon{
 
     @Override
     public String canUse(){
-        return "Remaining number of uses: " + super.getNumberOfUses();
+        if(super.getNumberOfUses() > 0){
+            return "Remaining number of uses: " + super.getNumberOfUses();
+        }else{
+            return "broken";
+        }
     }
 
     @Override

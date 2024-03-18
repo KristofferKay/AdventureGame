@@ -81,14 +81,14 @@ public class Player {
         if (droppedItem != null) {
             removeItemFromInventory(droppedItem);
             getCurrentRoom().addItem(droppedItem);
-            if(droppedItem.equals(currentWeapon)){
+            if (droppedItem.equals(currentWeapon)) {
                 dropEquipped();
             }
         }
         return droppedItem;
     }
 
-    public void dropEquipped(){
+    public void dropEquipped() {
         currentWeapon = null;
     }
 
@@ -162,8 +162,8 @@ public class Player {
         this.health = health;
     }
 
-    public String attack(){
-        if (currentWeapon != null){
+    public String attack() {
+        if (currentWeapon != null) {
             currentWeapon.useWeapon();
             return currentWeapon.canUse();
         }

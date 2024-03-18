@@ -218,7 +218,9 @@ public class UserInterface {
         String resultOfAttack = adventure.attack();
         if(resultOfAttack == null){
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
-        } else{
+        } else if(resultOfAttack.equals("broken")){
+            System.out.println("You cannot attack with this weapon, it's broken.");
+        }else{
             System.out.println(resultOfAttack);
         }
     }
