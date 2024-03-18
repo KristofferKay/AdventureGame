@@ -1,4 +1,6 @@
 import items.Item;
+import items.weapons.MeleeWeapon;
+import items.weapons.RangedWeapon;
 import items.weapons.Weapon;
 
 import java.util.List;
@@ -29,12 +31,12 @@ public class UserInterface {
                 case "look" -> look();
                 case "help" -> helpMsg();
                 case "inventory", "inv" -> inventory();
-                case "take" -> takeItem(splitUserInput);
-                case "drop" -> dropItem(splitUserInput);
-                case "health" -> health();
+                case "take", "t" -> takeItem(splitUserInput);
+                case "drop", "d" -> dropItem(splitUserInput);
+                case "health", "h" -> health();
                 case "eat", "drink" -> consume(splitUserInput);
-                case "equip" -> equip(splitUserInput);
-                case "attack" -> attack();
+                case "equip", "eq" -> equip(splitUserInput);
+                case "attack", "att" -> attack();
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -56,7 +58,7 @@ public class UserInterface {
         System.out.println("*************************************");
 
 //      Uncomment to play music, beaware ITS LOUD.
-      //PlaySoundMethod();
+        //PlaySoundMethod();
     }
     // println for currentroom that the player is in
     public void currentRoomPrint() {
@@ -96,7 +98,7 @@ public class UserInterface {
         if(!playerItems.isEmpty()){
             System.out.println("You have these items in your bag:");
             for(Item item : playerItems){
-                    System.out.println("- " + item.getShortName());
+                System.out.println("- " + item.getShortName());
             }
         }else{
             System.out.println("Your bag is empty.");
@@ -105,33 +107,40 @@ public class UserInterface {
 
     public void health() {
         int health = adventure.health();
-
         if (health >= 100) {
-            System.out.println("Your health is " + health + " You have full health.");
+            System.out.println("Your current health is " + "██████████ " + health);
         } else if (health > 50 && health < 100) {
-            System.out.println("Your health is " + health + ". You still have good health.");
+            System.out.println("Your current health is " + "███████▒▒▒ " + health + ". You still have good health.");
         } else if (health < 50 && health > 20) {
-            System.out.println("Your health is " + health + ". You should not fight, find something to eat to get more health.");
+            System.out.println("Your current health is " + "█████▒▒▒▒▒ " + health + ". You should not fight, find something to eat to get more health.");
         } else {
-            System.out.println("Your health is " + health + ". You are dying.");
+            System.out.println("Your current health is " + "███▒▒▒▒▒▒▒ " + health + ". You are dying, find something to eat, quickly");
         }
     }
 
     public void takeItem(String[] splitString) {
-        Item takeItem = adventure.takeItem(splitString[1]);
-        if (takeItem != null) {
-            System.out.println("You picked up " + takeItem.getShortName());
-        } else {
-            System.out.println("There are no " + splitString[1] + " in the room");
+        try {
+            Item takeItem = adventure.takeItem(splitString[1]);
+            if (takeItem != null) {
+                System.out.println("You picked up " + takeItem.getShortName());
+            } else {
+                System.out.println("There are no " + splitString[1] + " in the room");
+            }
+        }catch (ArrayIndexOutOfBoundsException aioob) {
+            System.out.println("You need to write what item you want to take eg. take water");
         }
     }
 
     public void dropItem(String[] splitString) {
-        Item dropItem = adventure.dropItem(splitString[1]);
-        if (dropItem != null) {
-            System.out.println("You dropped " + dropItem.getShortName());
-        } else {
-            System.out.println("There are no " + splitString[1] + " in your inventory");
+        try {
+            Item dropItem = adventure.dropItem(splitString[1]);
+            if (dropItem != null) {
+                System.out.println("You dropped " + dropItem.getShortName());
+            } else {
+                System.out.println("There are no " + splitString[1] + " in your inventory");
+            }
+        } catch (ArrayIndexOutOfBoundsException aioob) {
+            System.out.println("You need to write what item you want to drop eg. drop bow");
         }
     }
 
@@ -140,9 +149,7 @@ public class UserInterface {
         String response = adventure.consume(consumableName);
 
         switch (response){
-            case "poisonous" -> {System.out.println("This doesn’t look healthy, are you sure you want to eat it?");
-            }
-
+            case "poisonous" -> {System.out.println("This doesn’t look healthy, are you sure you want to eat it?");}
             case "eaten" -> System.out.println("You ate " + consumableName);
             case "drunken" -> System.out.println("You drank " + consumableName);
             case "not consumable" -> System.out.println("You cannot consume this item, it is neither food nor liquid.");
@@ -151,13 +158,17 @@ public class UserInterface {
     }
 
     public void equip(String [] splitString){
-        String weaponName = splitString[1];
-        String response = adventure.equip(weaponName);
+        try {
+            String weaponName = splitString[1];
+            String response = adventure.equip(weaponName);
 
-        switch (response){
-            case "does not exist" -> System.out.println("This weapon is not in your inventory");
-            case "equipped" -> System.out.println("You have equipped " + weaponName);
-            case "not a weapon" -> System.out.println("You cannot equip this item, it's not a weapon.");
+            switch (response){
+                case "does not exist" -> System.out.println("This weapon is not in your inventory");
+                case "equipped" -> System.out.println("You have equipped " + weaponName);
+                case "not a weapon" -> System.out.println("You cannot equip this item, it's not a weapon.");
+            }
+        } catch (ArrayIndexOutOfBoundsException aioob) {
+            System.out.println("You need to write what weapon you want to equip. eg equip bow");
         }
     }
 
@@ -198,6 +209,23 @@ public class UserInterface {
             currentRoomPrint();
         }else{
             noRoomMsg();
+        }
+    }
+
+
+    public void attack() {
+        if currentWeapon( != null){
+            if (currentWeapon instanceof RangedWeapon) {
+                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
+                if (rangedWeapon.canUse()) {
+                    System.out.println(currentWeapon.getShortName());
+                    rangedWeapon.getNumberOfUses();
+                } else if (currentWeapon instanceof MeleeWeapon) {
+                    System.out.println(currentWeapon.getShortName);
+                    {
+                    }
+                }
+            }
         }
     }
 
