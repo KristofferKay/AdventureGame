@@ -1,5 +1,6 @@
 import items.food.Consumables;
 import items.Item;
+import items.weapons.RangedWeapon;
 import items.weapons.Weapon;
 
 import java.util.ArrayList;
