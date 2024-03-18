@@ -1,4 +1,6 @@
 import items.Item;
+import items.weapons.MeleeWeapon;
+import items.weapons.RangedWeapon;
 import items.weapons.Weapon;
 
 import java.util.List;
@@ -11,13 +13,13 @@ public class UserInterface {
 
     public void startGame() {
         intro();
-        while(true){
+        while (true) {
             System.out.print("> ");
             String userInput = scanner.nextLine().toLowerCase();
             String[] splitUserInput = userInput.split(" "); //for extracting take or drop
             String editedCommand = splitUserInput[0].toLowerCase();
 
-            switch(editedCommand){
+            switch (editedCommand) {
                 case "exit" -> {
                     exit();
                     return;
@@ -41,7 +43,7 @@ public class UserInterface {
     }
 
     // Runs the welcome messages
-    public void intro(){
+    public void intro() {
         System.out.println("");
         System.out.println("             _                 _                   _____                      \n" +
                 "    /\\      | |               | |                 / ____|                     \n" +
@@ -56,28 +58,31 @@ public class UserInterface {
         System.out.println("*************************************");
 
 //      Uncomment to play music, beaware ITS LOUD.
-      //PlaySoundMethod();
+        //PlaySoundMethod();
     }
+
     // println for currentroom that the player is in
     public void currentRoomPrint() {
         Room currentRoom = adventure.getPlayer().getCurrentRoom();
-        System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(),currentRoom.getDescription());
+        System.out.printf("You are now in %s. \n%s\n", currentRoom.getName(), currentRoom.getDescription());
     }
-    public void exit(){
+
+    public void exit() {
         System.out.println("Exiting game, thanks for playing...");
     }
 
-    public void look(){
+    public void look() {
         Room currentRoom = adventure.getPlayer().getCurrentRoom();
         System.out.println("Looking around...");
         System.out.println(currentRoom.getLongDescription());
     }
+
     // if no room is near, this msg will display so
     public void noRoomMsg() {
         System.out.println("You cannot go there. Try again.");
     }
 
-    public void helpMsg(){
+    public void helpMsg() {
         System.out.println("\033[1mHere's a list of commands\033[0m:\n" +
                 "Commands:                              Description of command\n" +
                 "* north/south/east/west or n/s/e/w     - Move to a room in given direction \n" +
@@ -91,14 +96,14 @@ public class UserInterface {
                 "\033[1m**********************************************************************************\033[0m");
     }
 
-    public void inventory(){
+    public void inventory() {
         List<Item> playerItems = adventure.getInventory();
-        if(!playerItems.isEmpty()){
+        if (!playerItems.isEmpty()) {
             System.out.println("You have these items in your bag:");
-            for(Item item : playerItems){
-                    System.out.println("- " + item.getShortName());
+            for (Item item : playerItems) {
+                System.out.println("- " + item.getShortName());
             }
-        }else{
+        } else {
             System.out.println("Your bag is empty.");
         }
     }
@@ -135,12 +140,13 @@ public class UserInterface {
         }
     }
 
-    public void consume(String[] splitString){
+    public void consume(String[] splitString) {
         String consumableName = splitString[1];
         String response = adventure.consume(consumableName);
 
-        switch (response){
-            case "poisonous" -> {System.out.println("This doesn’t look healthy, are you sure you want to eat it?");
+        switch (response) {
+            case "poisonous" -> {
+                System.out.println("This doesn’t look healthy, are you sure you want to eat it?");
             }
 
             case "eaten" -> System.out.println("You ate " + consumableName);
@@ -150,11 +156,11 @@ public class UserInterface {
         }
     }
 
-    public void equip(String [] splitString){
+    public void equip(String[] splitString) {
         String weaponName = splitString[1];
         String response = adventure.equip(weaponName);
 
-        switch (response){
+        switch (response) {
             case "does not exist" -> System.out.println("This weapon is not in your inventory");
             case "equipped" -> System.out.println("You have equipped " + weaponName);
             case "not a weapon" -> System.out.println("You cannot equip this item, it's not a weapon.");
@@ -162,48 +168,62 @@ public class UserInterface {
     }
 
 
-    public void goNorth(){
+    public void goNorth() {
         Room northernRoom = adventure.goNorth();
-        if(northernRoom != null){
+        if (northernRoom != null) {
             System.out.println("Going north...");
             currentRoomPrint();
-        }else{
+        } else {
             noRoomMsg();
         }
     }
-    public void goSouth(){
+
+    public void goSouth() {
         Room southernRoom = adventure.goSouth();
-        if(southernRoom != null){
+        if (southernRoom != null) {
             System.out.println("Going south...");
             currentRoomPrint();
-        }else{
+        } else {
             noRoomMsg();
         }
     }
 
-    public void goEast(){
+    public void goEast() {
         Room easternRoom = adventure.goEast();
-        if(easternRoom != null){
+        if (easternRoom != null) {
             System.out.println("Going east...");
             currentRoomPrint();
-        }else{
+        } else {
             noRoomMsg();
         }
     }
 
-    public void goWest(){
+    public void goWest() {
         Room westernRoom = adventure.goWest();
-        if(westernRoom != null){
+        if (westernRoom != null) {
             System.out.println("Going west...");
             currentRoomPrint();
-        }else{
+        } else {
             noRoomMsg();
         }
     }
 
     public void attack() {
-        Player.attack();
+        if currentWeapon( != null){
+            if (currentWeapon instanceof RangedWeapon) {
+                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
+                if (rangedWeapon.canUse()) {
+                    System.out.println(currentWeapon.getShortName());
+                    rangedWeapon.getNumberOfUses();
+                } else if (currentWeapon instanceof MeleeWeapon) {
+                    System.out.println(currentWeapon.getShortName);
+                    {
+                    }
+                }
+            }
+        }
     }
+
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
         PlaySound.afspilLydfil(lydfilSti);
