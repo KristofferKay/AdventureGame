@@ -150,14 +150,7 @@ public class Player {
         this.health = health;
     }
 
-    public void attack() {
-        if currentWeapon( != null){
-            if (currentWeapon instanceof RangedWeapon) {
-                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
-                if (rangedWeapon.canUse()) {
-                    System.out.println(currentWeapon.getShortName());
-                    }
-                }
-            }
-        }
+    public void attack(){
+
+    }
 }
