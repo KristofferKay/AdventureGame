@@ -36,6 +36,9 @@ public class Map {
                 new Liquid("Akvavit", "A bottle of akvavit, tastes horrible and just makes you drunk.", -30),
                 new Liquid("Poison", "Probably deadful.", -80));
 
+        room2.addEnemies(new Enemies("Enemy1", "A giant monsters with a axe", 100),
+                new Enemies("Enemy2", "a enemie", 100));
+
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
@@ -43,7 +46,11 @@ public class Map {
         room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny."),
                 new MeleeWeapon("Shield", "A round metal shield with runes on it."),
                 new RangedWeapon("Bow", "A light wooden bow", 10),
+                new RangedWeapon("Pistol", "A deadly pistol",5),
                 new MeleeWeapon("Armour", "Get some protection"));
+
+        room3.addEnemies(new Enemies("Enemy3", "A giant monsters with a axe", 100),
+                new Enemies("Enemy4", "a enemie", 10));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +

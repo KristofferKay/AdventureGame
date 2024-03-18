@@ -7,6 +7,7 @@ public class Adventure {
     private Map map;
     private Player player;
 
+
     public Adventure() {
         map = new Map();
         player = new Player(map.getRoom1());
@@ -15,7 +16,6 @@ public class Adventure {
     public Player getPlayer() {
         return player;
     }
-
 
     public Room goNorth() {
         return player.goNorth();
@@ -60,7 +60,7 @@ public class Adventure {
         return player.equip(shortName);
     }
 
-    public String attack(){
-        return player.attack();
+    public String attack(String enemieName){
+        return player.attack(enemieName);
     }
 }

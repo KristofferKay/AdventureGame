@@ -5,7 +5,6 @@ import items.weapons.Weapon;
 
 import java.util.List;
 import java.util.Scanner;
-
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Adventure adventure = new Adventure();
@@ -36,7 +35,7 @@ public class UserInterface {
                 case "health", "h" -> health();
                 case "eat", "drink" -> consume(splitUserInput);
                 case "equip", "eq" -> equip(splitUserInput);
-                case "attack", "att" -> attack();
+                case "attack", "att" -> attack(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
         }
@@ -106,7 +105,6 @@ public class UserInterface {
             System.out.println("Your bag is empty.");
         }
     }
-
     public void health() {
         int health = adventure.health();
         if (health >= 100) {
@@ -132,7 +130,6 @@ public class UserInterface {
             System.out.println("You need to write what item you want to take eg. take water");
         }
     }
-
     public void dropItem(String[] splitString) {
         try {
             Item dropItem = adventure.dropItem(splitString[1]);
@@ -214,8 +211,12 @@ public class UserInterface {
         }
     }
 
-    public void attack() {
-        String resultOfAttack = adventure.attack();
+    public void attack(String [] splitString) {
+        String enemieName = splitString[1];
+        String response = adventure.attack(enemieName);
+
+
+        String resultOfAttack = adventure.attack(enemieName);
         if(resultOfAttack == null){
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
         } else if(resultOfAttack.equals("broken")){

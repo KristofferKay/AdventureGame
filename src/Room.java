@@ -11,7 +11,10 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
+    private Enemies enemies;
     private ArrayList<Item> roomItems = new ArrayList<>();
+    private ArrayList<Enemies> enemiesArrayList = new ArrayList<>();
+
     private boolean beenThere = false;
 
     public Room(String name, String longDescription, String shortDescription) {
@@ -30,6 +33,10 @@ public class Room {
 
     public void addItem(Item ... items){
         roomItems.addAll(Arrays.asList(items)); //adds all the items to inventory
+    }
+
+    public void addEnemies(Enemies ... enemies){
+        enemiesArrayList.addAll(Arrays.asList(enemies));
     }
 
     public Item findItemInRoom(String shortName) {
@@ -52,6 +59,14 @@ public class Room {
 
     public String getName() {
         return name;
+    }
+
+    public Enemies getEnemies() {
+        return enemies;
+    }
+
+    public Enemies setEnemies(){
+        return enemies;
     }
 
     public boolean hasBeenThere() {
