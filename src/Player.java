@@ -162,7 +162,7 @@ public class Player {
         this.health = health;
     }
 
-    public String attack(String enemieName) {
+    public String attack(String enemyName) {
         if (currentWeapon != null) {
             currentWeapon.useWeapon();
             return currentWeapon.canUse();

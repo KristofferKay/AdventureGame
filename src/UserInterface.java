@@ -212,11 +212,11 @@ public class UserInterface {
     }
 
     public void attack(String [] splitString) {
-        String enemieName = splitString[1];
-        String response = adventure.attack(enemieName);
+        String enemyName = splitString[1];
+        String response = adventure.attack(enemyName);
 
 
-        String resultOfAttack = adventure.attack(enemieName);
+        String resultOfAttack = adventure.attack(enemyName);
         if(resultOfAttack == null){
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
         } else if(resultOfAttack.equals("broken")){
