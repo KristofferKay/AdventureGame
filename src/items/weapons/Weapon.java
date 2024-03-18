@@ -2,12 +2,27 @@ package items.weapons;
 
 import items.Item;
 
-public class Weapon extends Item {
+public abstract class Weapon extends Item {
+    private int numberOfUses;
+
     public Weapon(String shortName, String longName) {
         super(shortName, longName);
     }
 
-    public String canUse(){
-        return "";
+    public Weapon(String shortName, String longName, int numberOfUses) {
+        super(shortName, longName);
+        this.numberOfUses = numberOfUses;
+    }
+
+    public abstract String canUse();
+
+    public abstract void useWeapon();
+
+    public int getNumberOfUses() {
+        return numberOfUses;
+    }
+
+    public void setNumberOfUses(int numberOfUses) {
+        this.numberOfUses = numberOfUses;
     }
 }

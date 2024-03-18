@@ -2,19 +2,19 @@ package items.weapons;
 
 public class RangedWeapon extends Weapon{
 
-    private int numberOfUses;
 
     public RangedWeapon(String shortName, String longName, int numberOfUses) {
-        super(shortName, longName);
-        this.numberOfUses = numberOfUses;
+        super(shortName, longName, numberOfUses);
     }
 
-    public int getNumberOfUses(){
-        return numberOfUses;
-    }
 
     @Override
     public String canUse(){
-        return "Remaining number of uses: " + numberOfUses;
+        return "Remaining number of uses: " + super.getNumberOfUses();
+    }
+
+    @Override
+    public void useWeapon(){
+        super.setNumberOfUses(super.getNumberOfUses()-1);
     }
 }

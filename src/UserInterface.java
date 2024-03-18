@@ -215,7 +215,12 @@ public class UserInterface {
     }
 
     public void attack() {
-
+        String resultOfAttack = adventure.attack();
+        if(resultOfAttack == null){
+            System.out.println("You are not equipped with a weapon, so you cannot attack.");
+        } else{
+            System.out.println(resultOfAttack);
+        }
     }
 
     public void PlaySoundMethod() {
