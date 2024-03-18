@@ -58,6 +58,9 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+    public Weapon getCurrentWeapon(){
+        return null;
+    }
 
     public void leaveRoom() {
         currentRoom.setBeenThere(true);
@@ -101,47 +104,48 @@ public class Player {
         }
         return null;
     }
+
     public int currentHealth() {
         return health;
     }
 
 
-    public String consume(String shortName){
+    public String consume(String shortName) {
         Item foundItem = findItemInInventory(shortName);
-        if(foundItem == null){ //item is not found in the player's inventory
+        if (foundItem == null) { //item is not found in the player's inventory
             foundItem = currentRoom.findItemInRoom(shortName); //find the item in the room
-            if(foundItem != null){//if the item is found in the room, and it's consumable
-                if(foundItem.isConsumable()){
+            if (foundItem != null) {//if the item is found in the room, and it's consumable
+                if (foundItem.isConsumable()) {
                     currentRoom.removeItemInRoom(shortName);
                     health = health + ((Consumables) foundItem).getHealthPoints();
-                    if(((Consumables) foundItem).isFood())return "eaten";
-                    if(((Consumables) foundItem).isLiquid()) return "drunken";
-                }else{
+                    if (((Consumables) foundItem).isFood()) return "eaten";
+                    if (((Consumables) foundItem).isLiquid()) return "drunken";
+                } else {
                     return "not consumable";
                 }
-            }else{
+            } else {
                 return "does not exist";
             }
-        }else{ //the item is in the inventory
-            if(foundItem.isConsumable()){
+        } else { //the item is in the inventory
+            if (foundItem.isConsumable()) {
                 inventory.remove(foundItem);
                 health = health + ((Consumables) foundItem).getHealthPoints();
-                if(((Consumables) foundItem).isFood()) return "eaten";
-                if(((Consumables) foundItem).isLiquid()) return "drunken";
-            }else{
+                if (((Consumables) foundItem).isFood()) return "eaten";
+                if (((Consumables) foundItem).isLiquid()) return "drunken";
+            } else {
                 return "not consumable";
             }
         }
         return "";
     }
 
-    public String equip(String shortName){
+    public String equip(String shortName) {
         Item foundItem = findItemInInventory(shortName);
-        if(foundItem == null) return "does not exist";
-        if(foundItem instanceof Weapon){
+        if (foundItem == null) return "does not exist";
+        if (foundItem instanceof Weapon) {
             currentWeapon = (Weapon) foundItem;
             return "equipped";
-        }else{
+        } else {
             return "not a weapon";
         }
     }
@@ -151,20 +155,14 @@ public class Player {
     }
 
     public void attack() {
-        if currentWeapon( != null){
+        if (currentWeapon!= null){
             if (currentWeapon instanceof RangedWeapon) {
-                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
+                RangedWeapon rangedWeapon = (RangedWeapon) currentWeapon;
                 if (rangedWeapon.canUse()) {
                     System.out.println(currentWeapon.getShortName());
                     rangedWeapon.getNumberOfUses();
-                } else if (currentWeapon instanceof MeleeWeapon) {
-                    System.out.println(currentWeapon.getShortName);
-                    {
-                    }
                 }
             }
         }
-    }
-
     }
 }
