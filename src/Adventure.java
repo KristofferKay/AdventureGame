@@ -1,4 +1,5 @@
 import items.Item;
+import items.weapons.Weapon;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,9 @@ public class Adventure {
         return player.currentHealth();
     }
 
-
+    public Weapon getPlayersCurrentWeapon(){
+        return player.getCurrentWeapon();
+    }
     public String consume(String shortName){
         return player.consume(shortName);
     }

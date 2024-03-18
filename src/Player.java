@@ -19,6 +19,10 @@ public class Player {
         health = 100;
     }
 
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
+    }
+
     public Room goNorth() {
         leaveRoom();
         if (currentRoom.getNorth() != null) {
@@ -151,6 +155,18 @@ public class Player {
     }
 
     public void attack(){
-
+//        if (currentWeapon( != null){
+//            if (currentWeapon instanceof RangedWeapon) {
+//                RangedWeapon rangedWeapon (RangedWeapon) currentWeapon;
+//                if (rangedWeapon.canUse()) {
+//                    System.out.println(currentWeapon.getShortName());
+//                    rangedWeapon.getNumberOfUses();
+//                } else if (currentWeapon instanceof MeleeWeapon) {
+//                    System.out.println(currentWeapon.getShortName);
+//                    {
+//                    }
+//                }
+//            }
+//        }
     }
 }
