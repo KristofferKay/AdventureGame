@@ -13,7 +13,8 @@ public class RangedWeapon extends Weapon{
         return numberOfUses;
     }
 
-    public boolean canUse(){
-        return numberOfUses > 0;
+    @Override
+    public String canUse(){
+        return "Remaining number of uses: " + numberOfUses;
     }
 }

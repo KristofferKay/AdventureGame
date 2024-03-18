@@ -202,7 +202,7 @@ public class UserInterface {
     }
 
     public void attack() {
-        Player.attack();
+        adventure.attack();
     }
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
