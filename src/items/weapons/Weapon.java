@@ -14,6 +14,10 @@ public abstract class Weapon extends Item {
         super(shortName, longName);
         this.numberOfUses = numberOfUses;
     }
+     public Weapon(String shortName, String longName,int damagePoints){
+         super(shortName, longName);
+         this.damagePoints =damagePoints;
+     }
 
     public abstract String canUse();
 
