@@ -11,7 +11,7 @@ public class Player {
     private ArrayList<Item> inventory;
 
     private int health;
-
+    private int damage;
 
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
@@ -170,6 +170,7 @@ public class Player {
         return null;
     }
 
+
     public String attack(String enemyName){
         return "";//TODO write attack enemy
     }
@@ -182,5 +183,12 @@ public class Player {
         }else{
             return resultOfTheAttack = attackAir(); //else attack empty air
         }
+    }
+    public void playerDamage(int damage){
+        health -= damage;
+        if (damage<=0){
+            System.out.println("Game over");
+        }
+
     }
 }
