@@ -71,4 +71,8 @@ public class Adventure {
     public String isAttackPossible(){
         return player.isAttackPossible();
     }
+
+    public String enemyAttacks(Enemy attackingEnemy){
+        return attackingEnemy.attack();
+    }
 }
