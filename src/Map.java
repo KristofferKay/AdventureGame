@@ -22,8 +22,8 @@ public class Map {
         room1 = new Room("Room 1",
                 "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ",
                 "Empty room.");
-        room1.addItem(new MeleeWeapon("sword","sharp sword"));
-        room1.addItem(new RangedWeapon("Gun","handgun",10));
+        room1.addItem(new MeleeWeapon("sword","sharp sword",100,-10));
+        room1.addItem(new RangedWeapon("Gun","handgun",10,-7));
 
         room2 = new Room("Room 2",
                 "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door in the east" +
@@ -36,21 +36,21 @@ public class Map {
                 new Liquid("Akvavit", "A bottle of akvavit, tastes horrible and just makes you drunk.", -30),
                 new Liquid("Poison", "Probably deadful.", -80));
 
-        room2.addEnemy(new Enemy("Enemy1", "A giant monsters with a axe", 100),
-                new Enemy("Enemy2", "a enemie", 100));
+        room2.addEnemy(new Enemy("Enemy1", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10));
+
 
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room throw a door in the east, and a room in the south.",
                 "Room - weapon storage.");
-        room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny."),
-                new MeleeWeapon("Shield", "A round metal shield with runes on it."),
-                new RangedWeapon("Bow", "A light wooden bow", 10),
-                new RangedWeapon("Pistol", "A deadly pistol",5),
-                new MeleeWeapon("Armour", "Get some protection"));
+        room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny.",100,-15),
+                new MeleeWeapon("Shield", "A round metal shield with runes on it.",100,0),
+                new RangedWeapon("Bow", "A light wooden bow", 10,-5),
+                new RangedWeapon("Pistol", "A deadly pistol",5,-7));
 
-        room3.addEnemy(new Enemy("Enemy3", "A giant monsters with a axe", 100),
-                new Enemy("Enemy4", "a enemie", 10));
+
+        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10),
+                new Enemy("Enemy4", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +

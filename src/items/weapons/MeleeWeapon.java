@@ -2,8 +2,8 @@ package items.weapons;
 
 public class MeleeWeapon extends Weapon{
 
-    public MeleeWeapon(String shortName, String longName){
-        super(shortName,longName);
+    public MeleeWeapon(String shortName, String longName,int numberOfUses,int damagePoints){
+        super(shortName,longName,numberOfUses,damagePoints);
     }
 
     @Override

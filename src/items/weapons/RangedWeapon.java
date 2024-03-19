@@ -3,8 +3,8 @@ package items.weapons;
 public class RangedWeapon extends Weapon{
 
 
-    public RangedWeapon(String shortName, String longName, int numberOfUses) {
-        super(shortName, longName, numberOfUses);
+    public RangedWeapon(String shortName, String longName, int numberOfUses,int damagePoints) {
+        super(shortName, longName, numberOfUses,damagePoints);
     }
 
 
