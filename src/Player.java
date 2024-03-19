@@ -162,8 +162,9 @@ public class Player {
         this.health = health;
     }
 
-    public String isAttackPossible(){
+    public String attackAir() {
         if (currentWeapon != null) {
+            currentWeapon.useWeapon();
             return currentWeapon.canUse();
         }
         return null;
