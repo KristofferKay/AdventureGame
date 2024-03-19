@@ -162,11 +162,25 @@ public class Player {
         this.health = health;
     }
 
-    public String attack(String enemyName) {
+    public String attackAir() {
         if (currentWeapon != null) {
             currentWeapon.useWeapon();
             return currentWeapon.canUse();
         }
         return null;
+    }
+
+    public String attack(String enemyName){
+        return "";//TODO write attack enemy
+    }
+
+    public String attack(){ //attack method when player does not write the name of an enemy
+        ArrayList<Enemy> enemies = currentRoom.getEnemiesArrayList();
+        String resultOfTheAttack = "";
+        if(!enemies.isEmpty()){ //if there are enemies in the room
+            return resultOfTheAttack = attack(enemies.get(0).getEnemyName()); //attack the first one
+        }else{
+            return resultOfTheAttack = attackAir(); //else attack empty air
+        }
     }
 }

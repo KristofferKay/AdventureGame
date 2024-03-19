@@ -39,6 +39,10 @@ public class Room {
         enemiesArrayList.addAll(Arrays.asList(enemy));
     }
 
+    public ArrayList<Enemy> getEnemiesArrayList() {
+        return enemiesArrayList;
+    }
+
     public Item findItemInRoom(String shortName) {
         for (Item item : roomItems) {
             if (item.getShortName().equalsIgnoreCase(shortName)) {

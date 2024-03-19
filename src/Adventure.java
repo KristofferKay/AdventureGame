@@ -63,4 +63,8 @@ public class Adventure {
     public String attack(String enemyName){
         return player.attack(enemyName);
     }
+
+    public String attack(){
+        return player.attack();
+    }
 }

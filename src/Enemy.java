@@ -9,4 +9,8 @@ public class Enemy {
         this.description = description;
         this.enemyHealth = enemyHealth;
     }
+
+    public String getEnemyName() {
+        return enemyName;
+    }
 }
