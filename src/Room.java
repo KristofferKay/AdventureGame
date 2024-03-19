@@ -69,7 +69,7 @@ public class Room {
         return enemy;
     }
 
-    public Enemy setEnemy(){
+    public Enemy setEnemy(Enemy enemy){
         return enemy;
     }
 
@@ -149,4 +149,14 @@ public class Room {
         this.south = south;
         south.setNorth(this);
     }
+
+    public Enemy findEnemy(String enemyName) {
+        for (Enemy enemy : enemiesArrayList) {
+            if (enemy.getEnemyName().equalsIgnoreCase(enemyName)) {
+                return enemy;
+            }
+        }
+        return null;
+    }
 }
+
