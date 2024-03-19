@@ -67,4 +67,8 @@ public class Adventure {
     public String attack(){
         return player.attack();
     }
+
+    public String isAttackPossible(){
+        return player.isAttackPossible();
+    }
 }

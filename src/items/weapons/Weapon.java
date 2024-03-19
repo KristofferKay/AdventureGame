@@ -4,6 +4,7 @@ import items.Item;
 
 public abstract class Weapon extends Item {
     private int numberOfUses;
+    private int damagePoints;
 
     public Weapon(String shortName, String longName) {
         super(shortName, longName);

@@ -213,16 +213,28 @@ public class UserInterface {
 
     public void attack(String [] splitString) {
         String enemyName = splitString[1];
-        String response = adventure.attack(enemyName);
 
-
-        String resultOfAttack = adventure.attack(enemyName);
-        if(resultOfAttack == null){
+        String isAttackPossible = adventure.isAttackPossible();
+        if(isAttackPossible == null){
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
-        } else if(resultOfAttack.equals("broken")){
+        } else if(isAttackPossible.equals("broken")){
             System.out.println("You cannot attack with this weapon, it's broken.");
         }else{
-            System.out.println(resultOfAttack);
+            System.out.println(isAttackPossible);
+            System.out.printf("%s: How dare you!..\n", enemyName);
+            String resultOfAttack = adventure.attack(enemyName);
+            switch (resultOfAttack){
+                case "dead" -> System.out.printf("%s: You were stronger than me...\n", enemyName);
+                case "alive" -> {
+                    System.out.printf("%s: You will regret it!\n", enemyName);
+                    String resultOfEnemyAttack = adventure.enemyAttacks();//enemy attacks return either "dead" or int which is received damage
+                    if(resultOfEnemyAttack.equals("dead")){
+                        System.out.printf("%s killed you. \n", enemyName);
+                        return;
+                    }
+                    System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
+                }
+            }
         }
     }
 

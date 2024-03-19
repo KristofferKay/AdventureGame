@@ -162,16 +162,26 @@ public class Player {
         this.health = health;
     }
 
-    public String attackAir() {
+    public String isAttackPossible(){
         if (currentWeapon != null) {
-            currentWeapon.useWeapon();
             return currentWeapon.canUse();
         }
         return null;
     }
 
+    public String attackAir() {
+        currentWeapon.useWeapon();
+
+    }
+
     public String attack(String enemyName){
-        return "";//TODO write attack enemy
+        Enemy enemyToAttack = currentRoom.findEnemy(enemyName);
+        int enemyHealth = enemyToAttack.getEnemyHealth();
+        enemyToAttack.setEnemyHealth(enemyHealth - currentWeapon.getDamagePoints());
+        if(enemyToAttack.getEnemyHealth() > 0){
+            return "alive";
+        }
+        return "dead";
     }
 
     public String attack(){ //attack method when player does not write the name of an enemy
