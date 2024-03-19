@@ -18,7 +18,9 @@ public class RangedWeapon extends Weapon{
     }
 
     @Override
-    public void useWeapon(){
-        super.setNumberOfUses(super.getNumberOfUses()-1);
+    public String useWeapon(){
+        int result = super.getNumberOfUses()-1;
+        super.setNumberOfUses(result);
+        return String.valueOf(result);
     }
 }

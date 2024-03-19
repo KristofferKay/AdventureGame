@@ -8,12 +8,12 @@ public class MeleeWeapon extends Weapon{
 
     @Override
     public String canUse() {
-        return "melee weapon";
+        return "";
     }
 
     @Override
-    public void useWeapon() {
-
+    public String useWeapon() {
+        return "melee weapon";
     }
 
 

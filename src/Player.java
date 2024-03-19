@@ -162,17 +162,9 @@ public class Player {
         this.health = health;
     }
 
-    public String attackAir() {
-        if (currentWeapon != null) {
-            currentWeapon.useWeapon();
-            return currentWeapon.canUse();
-        }
-        return null;
-    }
 
     public String attackAir() {
-        currentWeapon.useWeapon();
-
+        return currentWeapon.useWeapon();
     }
 
     public String attack(String enemyName){
@@ -193,5 +185,12 @@ public class Player {
         }else{
             return resultOfTheAttack = attackAir(); //else attack empty air
         }
+    }
+
+    public String isAttackPossible(){
+        if (currentWeapon != null) {
+            return currentWeapon.canUse();
+        }
+        return null;
     }
 }

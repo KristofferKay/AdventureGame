@@ -212,7 +212,7 @@ public class UserInterface {
     }
 
     public void attack(String [] splitString) {
-        String enemyName = splitString[1];
+
 
         String isAttackPossible = adventure.isAttackPossible();
         if(isAttackPossible == null){
@@ -221,22 +221,28 @@ public class UserInterface {
             System.out.println("You cannot attack with this weapon, it's broken.");
         }else{
             System.out.println(isAttackPossible);
-            System.out.printf("%s: How dare you!..\n", enemyName);
-            String resultOfAttack = adventure.attack(enemyName);
-            switch (resultOfAttack){
-                case "dead" -> System.out.printf("%s: You were stronger than me...\n", enemyName);
-                case "alive" -> {
-                    System.out.printf("%s: You will regret it!\n", enemyName);
-                    String resultOfEnemyAttack = adventure.enemyAttacks();//enemy attacks return either "dead" or int which is received damage
-                    if(resultOfEnemyAttack.equals("dead")){
-                        System.out.printf("%s killed you. \n", enemyName);
-                        return;
+            try {
+                String enemyName = splitString[1];
+                System.out.printf("%s: How dare you!..\n", enemyName);
+                String resultOfAttack = adventure.attack(enemyName);
+                switch (resultOfAttack) {
+                    case "dead" -> System.out.printf("%s: You were stronger than me...\n", enemyName);
+                    case "alive" -> {
+                        System.out.printf("%s: You will regret it!\n", enemyName);
+                        String resultOfEnemyAttack = adventure.enemyAttacks();//enemy attacks return either "dead" or int which is received damage
+                        if (resultOfEnemyAttack.equals("dead")) {
+                            System.out.printf("%s killed you. \n", enemyName);
+                            return;
+                        }
+                        System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
                     }
-                    System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
                 }
+            }catch(ArrayIndexOutOfBoundsException exception){
+                System.out.println(adventure.attack());
             }
         }
     }
+
 
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
