@@ -26,4 +26,8 @@ public abstract class Weapon extends Item {
     public void setNumberOfUses(int numberOfUses) {
         this.numberOfUses = numberOfUses;
     }
+
+    public int getDamagePoints(){
+        return damagePoints;
+    }
 }
