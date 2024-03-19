@@ -5,7 +5,8 @@ public class Enemy {
     private String enemyName;
     private String description;
     private int enemyHealth;
-
+    private Room currentRoom;
+    private Weapon currentWeapon;
     String enemyWeaponName;
     String  enemyWeaponDesc;
     int enemyNrUse;
@@ -13,27 +14,13 @@ public class Enemy {
 
 
 
-    public Enemy(String enemyName, String description, int enemyHealth, String enemyWeaponName, String enemyWeaponDesc,int  enemyNrUse, int enemyWpnDmg) {
+    public Enemy(String enemyName, String description, Room currentRoom, int enemyHealth, Weapon weapon) {
         this.enemyName = enemyName;
         this.description = description;
         this.enemyHealth = enemyHealth;
-        this.enemyWeaponName = enemyWeaponName;
-        this.enemyWeaponDesc = enemyWeaponDesc;
-        this.enemyNrUse = enemyNrUse;
-        this.enemyWpnDmg = enemyWpnDmg;
-        Weapon weapon = new Weapon(enemyWeaponName, enemyWeaponDesc, enemyNrUse, enemyWpnDmg) {
-            @Override
-            public String canUse() {
-                return null;
-            }
-
-            @Override
-            public String useWeapon() {
-
-                return null;
-            }
-        };
+        this.currentWeapon = weapon;
     }
+
     public String attackingEnemy(){
         if(enemyHealth>0){
             return String.valueOf(enemyWpnDmg);
@@ -43,7 +30,9 @@ public class Enemy {
         }
     }
 
-
+    public void die(){
+        currentRoom.addItem(currentWeapon);
+    }
 
     public String getEnemyName() {
         return enemyName;

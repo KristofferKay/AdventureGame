@@ -36,7 +36,7 @@ public class Map {
                 new Liquid("Akvavit", "A bottle of akvavit, tastes horrible and just makes you drunk.", -30),
                 new Liquid("Poison", "Probably deadful.", -80));
 
-        room2.addEnemy(new Enemy("Enemy1", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10));
+        room2.addEnemy(new Enemy("Enemy1", "A giant monster with a axe", room2, 100, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, -10)));
 
 
         room3 = new Room("Room 3",
@@ -49,8 +49,8 @@ public class Map {
                 new RangedWeapon("Pistol", "A deadly pistol",5,-7));
 
 
-        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10),
-                new Enemy("Enemy4", "A giant monster with a axe", 100,"Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10));
+        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 100, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10)),
+                new Enemy("Enemy4", "A giant monster with a axe", room3, 100, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..",100,-10)));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
