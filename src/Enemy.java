@@ -34,6 +34,14 @@ public class Enemy {
             }
         };
     }
+    public String attackingEnemy(){
+        if(enemyHealth>0){
+            return String.valueOf(enemyWpnDmg);
+
+        }else{
+            return "dead";
+        }
+    }
 
 
 
