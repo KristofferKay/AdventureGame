@@ -17,7 +17,7 @@ public abstract class Weapon extends Item {
 
     public abstract String canUse();
 
-    public abstract void useWeapon();
+    public abstract String useWeapon();
 
     public int getNumberOfUses() {
         return numberOfUses;
