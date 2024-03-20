@@ -224,45 +224,55 @@ public class UserInterface {
             try {
                 String enemyName = splitString[1];
                 Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
-
-                System.out.printf("%s: How dare you!..\n", enemyName);
-                String resultOfAttack = adventure.attack(enemyName);
-                String damagedOrDead = resultOfAttack.split(" ")[1];
-                if(damagedOrDead.equals("dead")){
-                    System.out.printf(enemyName + " is dead.\n");
-                }else{
-                    System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, damagedOrDead, enemyName, attackingEnemy.getEnemyHealth());
-                    System.out.printf("%s: You will regret it!\n", enemyName);
-                    String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());
-                    if (resultOfEnemyAttack.equals("dead")) {
-                        System.out.printf("%s killed you. \n", enemyName);
-                        return;
-                    }
-                    System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
-                }
+                attackEnemy(attackingEnemy);
             } catch (ArrayIndexOutOfBoundsException exception) {
 
-                String resultOfAttack = adventure.attack();
-                String enemyName = resultOfAttack.split(" ")[0];
-                String damagedOrDead = resultOfAttack.split(" ")[1];
-                Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
-                if(attackingEnemy != null) {
-                    if (damagedOrDead.equals("dead")) {
-                        System.out.printf(enemyName + " is dead.\n");
-                    } else {
-                        System.out.printf("%s got %s damage.\n %s has %d health left.", enemyName, damagedOrDead, enemyName, attackingEnemy.getEnemyHealth());
-                        System.out.printf("%s: You will regret it!\n", enemyName);
-                        String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());
-                        if (resultOfEnemyAttack.equals("dead")) {
-                            System.out.printf("%s killed you. \n", enemyName);
-                            return;
-                        }
-                        System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
-                    }
+                if(!adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()){ //if there are enemies in the room
+                    attackEnemy(adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().get(0));//then attack the first one
                 }else{
-                    System.out.println(resultOfAttack);
+                    System.out.println(adventure.attackAir());//else attack air
                 }
+
+//                String resultOfAttack = adventure.attack();
+//                String enemyName = resultOfAttack.split(" ")[0];
+//                String damagedOrDead = resultOfAttack.split(" ")[1];
+//                Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
+//                if(attackingEnemy != null) {
+//                    if (damagedOrDead.equals("dead")) {
+//                        System.out.printf(enemyName + " is dead.\n");
+//                    } else {
+//                        System.out.printf("%s got %s damage.\n %s has %d health left.", enemyName, damagedOrDead, enemyName, attackingEnemy.getEnemyHealth());
+//                        System.out.printf("%s: You will regret it!\n", enemyName);
+//                        String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());
+//                        if (resultOfEnemyAttack.equals("dead")) {
+//                            System.out.printf("%s killed you. \n", enemyName);
+//                            return;
+//                        }
+//                        System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
+//                    }
+//                }else{
+//                    System.out.println(resultOfAttack);
+//                }
             }
+        }
+    }
+
+    public void attackEnemy(Enemy enemy){
+        String enemyName = enemy.getEnemyName();
+        System.out.printf("%s: How dare you!..\n", enemyName);
+        String resultOfAttack = adventure.attack(enemy);
+        //String damagedOrDead = resultOfAttack.split(" ")[1];
+        if(resultOfAttack.equals("dead")){
+            System.out.printf(enemyName + " is dead.\n");
+        }else{
+            System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
+            System.out.printf("%s: You will regret it!\n", enemyName);
+            String resultOfEnemyAttack = adventure.enemyAttacks(enemy, adventure.getPlayer());
+            if (resultOfEnemyAttack.equals("dead")) {
+                System.out.printf("%s killed you. \n", enemyName);
+                return;
+            }
+            System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
         }
     }
 

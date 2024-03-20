@@ -60,13 +60,13 @@ public class Adventure {
         return player.equip(shortName);
     }
 
-    public String attack(String enemyName){
-        return player.attack(enemyName);
+    public String attack(Enemy enemy){
+        return player.attack(enemy);
     }
 
-    public String attack(){
-        return player.attack();
-    }
+//    public String attack(){
+//        return player.attack();
+//    }
 
     public String isAttackPossible(){
         return player.isAttackPossible();
@@ -74,5 +74,9 @@ public class Adventure {
 
     public String enemyAttacks(Enemy attackingEnemy, Player player) {
         return attackingEnemy.attack(player);
+    }
+
+    public String attackAir() {
+        return player.attackAir();
     }
 }

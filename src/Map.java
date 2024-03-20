@@ -22,8 +22,8 @@ public class Map {
         room1 = new Room("Room 1",
                 "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ",
                 "Empty room.");
-        room1.addItem(new MeleeWeapon("sword","sharp sword",100,-10));
-        room1.addItem(new RangedWeapon("Gun","handgun",10,-7));
+        room1.addItem(new MeleeWeapon("sword","sharp sword",100, 10));
+        room1.addItem(new RangedWeapon("Gun","handgun",10, 7));
 
         room2 = new Room("Room 2",
                 "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door east" +
