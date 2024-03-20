@@ -18,6 +18,7 @@ public class Enemy {
     public Enemy(String enemyName, String description, Room currentRoom, int enemyHealth, Weapon weapon) {
         this.enemyName = enemyName;
         this.description = description;
+        this.currentRoom = currentRoom;
         this.enemyHealth = enemyHealth;
         this.currentWeapon = weapon;
     }
@@ -50,6 +51,12 @@ public class Enemy {
 
     public void die(){
         currentRoom.addItem(currentWeapon);
+    }
+    public Room getCurrentRoom(){
+        return currentRoom;
+    }
+    public void setCurrentRoom(Room currentRoom){
+        this.currentRoom=currentRoom;
     }
 
     public String getEnemyName() {
