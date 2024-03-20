@@ -9,8 +9,6 @@ public class Enemy {
     private Weapon currentWeapon;
 
 
-
-
     public Enemy(String enemyName, String description, Room currentRoom, int enemyHealth, Weapon weapon) {
         this.enemyName = enemyName;
         this.description = description;
@@ -66,6 +64,10 @@ public class Enemy {
 
     public void setEnemyHealth(int enemyHealth) {
         this.enemyHealth = enemyHealth;
+    }
+
+    public String getDescription(){
+        return description;
     }
 
 

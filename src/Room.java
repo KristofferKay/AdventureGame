@@ -23,6 +23,7 @@ public class Room {
         this.shortDescription = shortDescription;
     }
 
+
     public String getDescription(){
         if(beenThere){
             return getShortDescription();
@@ -30,6 +31,7 @@ public class Room {
             return getLongDescription();
         }
     }
+
 
     public void addItem(Item ... items){
         roomItems.addAll(Arrays.asList(items)); //adds all the items to inventory
@@ -93,15 +95,16 @@ public class Room {
         if(!roomItems.isEmpty()){
             description += "\nItems in the room: \n";
             for(Item item : roomItems){
-                description += item.getShortName() + ". ";
+                description += item.getShortName() + " - ";
                 description += item.getLongName() + "\n";
             }
         }
         if(!enemiesArrayList.isEmpty()){
             description += "\nEnemies in the room: \n";
             for(Enemy enemy : enemiesArrayList){
-                description += enemy.getEnemyName() + ". Health: ";
-                description += enemy.getEnemyHealth() + "\n";
+                description += enemy.getEnemyName() + " - ";
+                description += enemy.getDescription() + ", with ";
+                description += enemy.getEnemyHealth() + " health \n";
             }
         }
         return description;
@@ -166,7 +169,7 @@ public class Room {
                 return enemy;
             }
         }
-        return null;
+        return enemy;
     }
-}
 
+}
