@@ -215,11 +215,11 @@ public class UserInterface {
 
 
         String isAttackPossible = adventure.isAttackPossible();
-        if(isAttackPossible == null){
+        if (isAttackPossible == null) {
             System.out.println("You are not equipped with a weapon, so you cannot attack.");
-        } else if(isAttackPossible.equals("broken")){
+        } else if (isAttackPossible.equals("broken")) {
             System.out.println("You cannot attack with this weapon, it's broken.");
-        }else{
+        } else {
             System.out.println(isAttackPossible);
             try {
                 String enemyName = splitString[1];
@@ -227,19 +227,36 @@ public class UserInterface {
 
                 System.out.printf("%s: How dare you!..\n", enemyName);
                 String resultOfAttack = adventure.attack(enemyName);
-                switch (resultOfAttack) {
-                    case "dead" -> System.out.printf("%s: You were stronger than me...\n", enemyName);
-                    case "alive" -> {
-                        System.out.printf("%s: You will regret it!\n", enemyName);
-                        String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());                        if (resultOfEnemyAttack.equals("dead")) {
-                            System.out.printf("%s killed you. \n", enemyName);
-                            return;
-                        }
-                        System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
+                String damagedOrDead = resultOfAttack.split(" ")[1];
+                if(damagedOrDead.equals("dead")){
+                    System.out.printf("%s: You were stronger than me...\n", enemyName);
+                }else{
+                    System.out.printf("%s got %s damage.\n", enemyName, damagedOrDead);
+                    System.out.printf("%s: You will regret it!\n", enemyName);
+                    String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());
+                    if (resultOfEnemyAttack.equals("dead")) {
+                        System.out.printf("%s killed you. \n", enemyName);
+                        return;
                     }
+                    System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
                 }
-            }catch(ArrayIndexOutOfBoundsException exception){
-                System.out.println(adventure.attack());
+            } catch (ArrayIndexOutOfBoundsException exception) {
+                String resultOfAttack = adventure.attack();
+                String enemyName = resultOfAttack.split(" ")[0];
+                String damagedOrDead = resultOfAttack.split(" ")[1];
+                Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
+                if(damagedOrDead.equals("dead")){
+                    System.out.printf("%s: You were stronger than me...\n", enemyName);
+                }else{
+                    System.out.printf("%s got %s damage.\n", enemyName, damagedOrDead);
+                    System.out.printf("%s: You will regret it!\n", enemyName);
+                    String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());
+                    if (resultOfEnemyAttack.equals("dead")) {
+                        System.out.printf("%s killed you. \n", enemyName);
+                        return;
+                    }
+                    System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
+                }
             }
         }
     }

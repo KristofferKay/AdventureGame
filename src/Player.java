@@ -118,7 +118,7 @@ public class Player {
         return null;
     }
 
-    public int currentHealth() {
+    public int getHealth() {
         return health;
     }
 
@@ -178,9 +178,11 @@ public class Player {
         int enemyHealth = enemyToAttack.getEnemyHealth();
         enemyToAttack.setEnemyHealth(enemyHealth - currentWeapon.getDamagePoints());
         if(enemyToAttack.getEnemyHealth() > 0){
-            return "alive";
+            return enemyName + " " + currentWeapon.getDamagePoints();
+        }else{
+            enemyToAttack.die();
+            return enemyName + " dead";
         }
-        return "dead";
     }
 
     public String attack(){ //attack method when player does not write the name of an enemy

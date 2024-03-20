@@ -46,7 +46,7 @@ public class Adventure {
     }
 
     public int health(){
-        return player.currentHealth();
+        return player.getHealth();
     }
 
     public Weapon getPlayersCurrentWeapon(){

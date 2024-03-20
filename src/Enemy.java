@@ -7,11 +7,7 @@ public class Enemy {
     private int enemyHealth;
     private Room currentRoom;
     private Weapon currentWeapon;
-    String enemyWeaponName;
-    String  enemyWeaponDesc;
-    int enemyNrUse;
-    int enemyWpnDmg;
-    private Weapon enemyWeapon;
+
 
 
 
@@ -24,9 +20,19 @@ public class Enemy {
     }
 
     public String attack(Player player) {
-        int damageDealt = enemyWeapon.getDamagePoints();
-        player.hit(damageDealt);
-        return "Enemy attacked player with " + damageDealt + " damage.";
+//        int damageDealt = currentWeapon.getDamagePoints();
+//        player.hit(damageDealt);
+//        return "Enemy attacked player with " + damageDealt + " damage.";
+
+        if(enemyHealth>0){
+            player.setHealth(player.getHealth()-currentWeapon.getDamagePoints());
+            if(player.getHealth() > 0){
+                return String.valueOf(currentWeapon.getDamagePoints());
+            }else{
+                return "dead";
+            }
+        }
+        return "";
     }
 
     public String hit(int damage) {
@@ -40,14 +46,7 @@ public class Enemy {
     }
 
 
-    public String attackingEnemy(){
-        if(enemyHealth>0){
-            return String.valueOf(enemyWpnDmg);
 
-        }else{
-            return "dead";
-        }
-    }
 
     public void die(){
         currentRoom.addItem(currentWeapon);
@@ -63,12 +62,6 @@ public class Enemy {
         return enemyName;
     }
 
-    public int getEnemyWpnDmg() {
-        return enemyWpnDmg;
-    }
-    public void setEnemyWpnDmg(int enemyWpnDmg){
-        this.enemyWpnDmg = enemyWpnDmg;
-    }
 
     public void setEnemyHealth(int enemyHealth) {
         this.enemyHealth = enemyHealth;

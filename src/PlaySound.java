@@ -13,10 +13,10 @@ public class PlaySound {
                 return;
             }
 
-            AudioInputStream lydIndputStrøm = AudioSystem.getAudioInputStream(lydURL);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(lydURL);
 
             Clip lydClip = AudioSystem.getClip();
-            lydClip.open(lydIndputStrøm);
+            lydClip.open(audioInputStream);
 
             lydClip.start();
             Thread.sleep(lydClip.getMicrosecondLength() / 1000);

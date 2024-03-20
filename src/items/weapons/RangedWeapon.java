@@ -23,4 +23,5 @@ public class RangedWeapon extends Weapon{
         super.setNumberOfUses(result);
         return String.valueOf(result);
     }
+
 }
