@@ -26,23 +26,27 @@ public class Map {
         room1.addItem(new RangedWeapon("Gun","handgun",10,-7));
 
         room2 = new Room("Room 2",
-                "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door in the east" +
-                "and through a metal door in the west.",
+                "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door east" +
+                "and through a metal door west.",
                 "Room with a dining table.");
         room2.addItem(new Item("Knife", "A kitchen knife, small but quite sharp."),
-                new Food("Cheese", "A piece of old stinking cheese.",1),
+                new Food("Cheese", "An old stinky piece of cheese.",1),
                 new Liquid("Water", "A bottle filled with water.",5),
                 new Food("Apple", "A fresh delicious apple.",10),
-                new Liquid("Akvavit", "A bottle of akvavit, tastes horrible and just makes you drunk.", -30),
-                new Liquid("Poison", "Probably deadful.", -80));
+                new Liquid("Akvavit", "A bottle of Akvavit, tastes horrible and just makes you drunk.", -30),
+                new Liquid("Poison", "Probably deadly.", -80));
 
         room2.addEnemy(new Enemy("Enemy1", "A giant monster with a axe", room2, 100, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 10)));
 
 
         room3 = new Room("Room 3",
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
-                "You can leave the room throw a door in the east, and a room in the south.",
+                "You can leave the room through a door east, and a room south.",
                 "Room - weapon storage.");
+        room3.addItem(new MeleeWeapon("Sword", "A one-handed knights sword, new and shiny.",100,-15),
+                new MeleeWeapon("Shield", "A round metal shield with runes on it.",100,0),
+                new RangedWeapon("Bow", "A light wooden bow", 10,-5),
+                new RangedWeapon("Pistol", "A deadly pistol",5,-7));
         room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny.", 100, 15),
                 new MeleeWeapon("Shield", "A round metal shield with runes on it.", 100, 0),
                 new RangedWeapon("Bow", "A light wooden bow", 10, 5),
@@ -53,33 +57,33 @@ public class Map {
                 new Enemy("Enemy4", "A giant monster with a axe", room3, 10, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 50)));
 
         room4 = new Room("Room 4",
-                "Seems like you entered the library. There are lots of books on the book shelfs. But there is one small book which drawns your attention." +
-                "Grab it and continue either throw a metal door in the north, or through a passage in the south.",
+                "Seems like you entered the library. There are lots of books on the book shelves. But there is one small book which draws your attention." +
+                "Grab it and continue either through a metal door north, or through a passage south.",
                 "Room - library.");
 
         room5 = new Room("Room 5",
-                "Right after the door there is a stairs going down to a dungeon. There is blue light in the darkness. Probably it is a portal?",
+                "Right after the door there is a stair going down to a dungeon. There is a faint blue light glowing at the bottom of the stairs. Its probably a portal?",
                 "Secret room with a portal.");
 
         room6 = new Room("Room 6",
                 "Looks like you are in trouble. Right after you enter the room you got attacked by a bunch of skeletons," +
-                "armoured with rusty but sharp swords. Fight if you can or run - the room has two doors: one in the north and one in the south.",
+                "armoured with rusty but sharp swords. Fight if you can or run - the room has two doors: one north and one south.",
                 "Room with skeletons.");
 
         room7 = new Room("Room 7",
                 "It looks like a hall for big gatherings, as it has a tribune and many " +
-                "wooden chairs. You can notice an old man, sitting quietly in the corner." +
-                "There is a passage going north, and a nicely decorated room in the east side of the hall.",
+                "wooden chairs. You notice an old man, sitting quietly in the corner." +
+                "There is a passage going north, and a nicely decorated room on the east side of the hall.",
                 "Big hall room.");
 
         room8 = new Room("Room 8",
                 "It's hot in here! thanks to a dragon, which sits on a huge chest and exhales fire. " +
-                "The dragon is obviously not in a friendly mood. You can escape it through a decorated door leading to the west, and a wooden door towards the east. There is also a large " +
+                "The dragon is obviously not in a friendly mood. You can escape  through a decorated door leading west, and a wooden door towards east. There is also a large " +
                 "metal gate in the northern side of the room, but it has a lock on it.",
                 "Room with a dragon and a chest.");
 
         room9 = new Room("Room 9",
-                "It is a very dark room, you literally cannot see anything. But after you lit up a match it gets possible to notice a door in the northes" +
+                "It is a very dark room, you literally cannot see anything. But after you lit up a match it gets possible to notice a door in the northerm" +
                 "side of the room, and also a door towards the west. But wait with leaving - you are not alone in the room." +
                 "There is a young woman hiding under the table.",
                 "Dark room.");
