@@ -49,6 +49,7 @@ public class Enemy {
 
 
     public void die(){
+        currentRoom.removeEnemy(this);
         currentRoom.addItem(currentWeapon);
     }
     public Room getCurrentRoom(){

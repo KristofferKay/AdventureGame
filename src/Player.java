@@ -187,11 +187,10 @@ public class Player {
 
     public String attack(){ //attack method when player does not write the name of an enemy
         ArrayList<Enemy> enemies = currentRoom.getEnemiesArrayList();
-        String resultOfTheAttack = "";
         if(!enemies.isEmpty()){ //if there are enemies in the room
-            return resultOfTheAttack = attack(enemies.get(0).getEnemyName()); //attack the first one
+            return attack(enemies.get(0).getEnemyName()); //attack the first one
         }else{
-            return resultOfTheAttack = attackAir(); //else attack empty air
+            return attackAir(); //else attack empty air
         }
     }
 

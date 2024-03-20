@@ -241,6 +241,7 @@ public class UserInterface {
                     System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
                 }
             } catch (ArrayIndexOutOfBoundsException exception) {
+
                 String resultOfAttack = adventure.attack();
                 String enemyName = resultOfAttack.split(" ")[0];
                 String damagedOrDead = resultOfAttack.split(" ")[1];
