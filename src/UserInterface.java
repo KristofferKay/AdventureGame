@@ -224,14 +224,14 @@ public class UserInterface {
             try {
                 String enemyName = splitString[1];
                 Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
+
                 System.out.printf("%s: How dare you!..\n", enemyName);
                 String resultOfAttack = adventure.attack(enemyName);
                 switch (resultOfAttack) {
                     case "dead" -> System.out.printf("%s: You were stronger than me...\n", enemyName);
                     case "alive" -> {
                         System.out.printf("%s: You will regret it!\n", enemyName);
-                        String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy);//enemy attacks return either "dead" or int which is received damage
-                        if (resultOfEnemyAttack.equals("dead")) {
+                        String resultOfEnemyAttack = adventure.enemyAttacks(attackingEnemy, adventure.getPlayer());                        if (resultOfEnemyAttack.equals("dead")) {
                             System.out.printf("%s killed you. \n", enemyName);
                             return;
                         }

@@ -72,7 +72,7 @@ public class Adventure {
         return player.isAttackPossible();
     }
 
-    public String enemyAttacks(Enemy attackingEnemy){
-        return attackingEnemy.attack();
+    public String enemyAttacks(Enemy attackingEnemy, Player player) {
+        return attackingEnemy.attack(player);
     }
 }

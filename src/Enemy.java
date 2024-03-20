@@ -11,6 +11,7 @@ public class Enemy {
     String  enemyWeaponDesc;
     int enemyNrUse;
     int enemyWpnDmg;
+    private Weapon enemyWeapon;
 
 
 
@@ -20,6 +21,23 @@ public class Enemy {
         this.enemyHealth = enemyHealth;
         this.currentWeapon = weapon;
     }
+
+    public String attack(Player player) {
+        int damageDealt = enemyWeapon.getDamagePoints();
+        player.hit(damageDealt);
+        return "Enemy attacked player with " + damageDealt + " damage.";
+    }
+
+    public String hit(int damage) {
+        enemyHealth -= damage;
+        if (enemyHealth <= 0) {
+            die();
+            return "Enemy has been defeated!";
+        } else {
+            return "Enemy has been hit for " + damage + " damage.";
+        }
+    }
+
 
     public String attackingEnemy(){
         if(enemyHealth>0){

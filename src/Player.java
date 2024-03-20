@@ -12,7 +12,12 @@ public class Player {
 
     private int health;
 
-
+    public void hit(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            System.out.println("dead");
+        }
+    }
     public Player(Room firstRoom) {
         this.currentRoom = firstRoom;
         this.inventory = new ArrayList<>();
@@ -166,6 +171,7 @@ public class Player {
     public String attackAir() {
         return currentWeapon.useWeapon();
     }
+
 
     public String attack(String enemyName){
         Enemy enemyToAttack = currentRoom.findEnemy(enemyName);

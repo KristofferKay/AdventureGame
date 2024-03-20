@@ -13,7 +13,7 @@ public abstract class Weapon extends Item {
     }
      public Weapon(String shortName, String longName,int damagePoints){
          super(shortName, longName);
-         this.damagePoints =damagePoints;
+         this.damagePoints = damagePoints;
      }
 
     public abstract String canUse();
