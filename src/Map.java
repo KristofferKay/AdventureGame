@@ -53,8 +53,8 @@ public class Map {
                 new RangedWeapon("Pistol", "A deadly pistol", 5, 7));
 
 
-        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 10, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 50)),
-                new Enemy("Enemy4", "A giant monster with a axe", room3, 10, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 50)));
+        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 25, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)),
+                new Enemy("Enemy4", "A giant monster with a axe", room3, 25, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelves. But there is one small book which draws your attention." +

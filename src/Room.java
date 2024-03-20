@@ -97,6 +97,13 @@ public class Room {
                 description += item.getLongName() + "\n";
             }
         }
+        if(!enemiesArrayList.isEmpty()){
+            description += "\nEnemies in the room: \n";
+            for(Enemy enemy : enemiesArrayList){
+                description += enemy.getEnemyName() + ". Health: ";
+                description += enemy.getEnemyHealth() + "\n";
+            }
+        }
         return description;
     }
 
