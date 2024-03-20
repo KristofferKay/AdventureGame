@@ -43,18 +43,15 @@ public class Map {
                 "This room looks like a weapon storage. There are different swords and shields hanging on the walls, and there are also bows and arrows. " +
                 "You can leave the room through a door east, and a room south.",
                 "Room - weapon storage.");
-        room3.addItem(new MeleeWeapon("Sword", "A one-handed knights sword, new and shiny.",100,-15),
+        room3.addItem(new MeleeWeapon("Sword", "A one-handed knights sword, new and shiny.",100,15),
                 new MeleeWeapon("Shield", "A round metal shield with runes on it.",100,0),
-                new RangedWeapon("Bow", "A light wooden bow", 10,-5),
-                new RangedWeapon("Pistol", "A deadly pistol",5,-7));
-        room3.addItem(new MeleeWeapon("Sword", "A sword for using in one hand, new and shiny.", 100, 15),
-                new MeleeWeapon("Shield", "A round metal shield with runes on it.", 100, 0),
-                new RangedWeapon("Bow", "A light wooden bow", 10, 5),
-                new RangedWeapon("Pistol", "A deadly pistol", 5, 7));
+                new RangedWeapon("Bow", "A light wooden bow", 10,100),
+                new RangedWeapon("Pistol", "A deadly pistol",5,7));
 
 
-        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 25, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)),
-                new Enemy("Enemy4", "A giant monster with a axe", room3, 25, new MeleeWeapon("Great Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)));
+
+        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 25, new MeleeWeapon("Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)),
+                new Enemy("Enemy4", "A giant monster with a axe", room3, 25, new MeleeWeapon("Axe2","A Giant axe. Might be too heavy for one hand..", 100, 25)));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelves. But there is one small book which draws your attention." +

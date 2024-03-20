@@ -229,7 +229,7 @@ public class UserInterface {
                 String resultOfAttack = adventure.attack(enemyName);
                 String damagedOrDead = resultOfAttack.split(" ")[1];
                 if(damagedOrDead.equals("dead")){
-                    System.out.printf("%s: You were stronger than me...\n", enemyName);
+                    System.out.printf(enemyName + " is dead.\n");
                 }else{
                     System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, damagedOrDead, enemyName, attackingEnemy.getEnemyHealth());
                     System.out.printf("%s: You will regret it!\n", enemyName);
@@ -247,7 +247,7 @@ public class UserInterface {
                 String damagedOrDead = resultOfAttack.split(" ")[1];
                 Enemy attackingEnemy = adventure.getPlayer().getCurrentRoom().findEnemy(enemyName);
                 if(damagedOrDead.equals("dead")){
-                    System.out.printf("%s: You were stronger than me...\n %s is dead.", enemyName, enemyName);
+                    System.out.printf(enemyName + " is dead.\n");
                 }else{
                     System.out.printf("%s got %s damage.\n %s has %d health left.", enemyName, damagedOrDead, enemyName, attackingEnemy.getEnemyHealth());
                     System.out.printf("%s: You will regret it!\n", enemyName);
