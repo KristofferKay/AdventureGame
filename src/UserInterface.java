@@ -5,6 +5,9 @@ import items.weapons.Weapon;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Adventure adventure = new Adventure();
@@ -259,7 +262,7 @@ public class UserInterface {
 
     public void attackEnemy(Enemy enemy){
         String enemyName = enemy.getEnemyName();
-        System.out.printf("%s: How dare you!..\n", enemyName);
+        System.out.printf("%s: How dare you attack me!..\n", enemyName);
         String resultOfAttack = adventure.attack(enemy);
         //String damagedOrDead = resultOfAttack.split(" ")[1];
         if(resultOfAttack.equals("dead")){
@@ -267,13 +270,13 @@ public class UserInterface {
             gameOver();
         }else{
             System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
-            System.out.printf("%s: You will regret it!\n", enemyName);
+            System.out.printf("%s: You will regret doing that!\n", enemyName);
             String resultOfEnemyAttack = adventure.enemyAttacks(enemy, adventure.getPlayer());
             if (resultOfEnemyAttack.equals("dead")) {
                 System.out.printf("%s killed you. \n", enemyName);
                 return;
             }
-            System.out.println("Both have survived. You got " + resultOfEnemyAttack + " damage.");
+            System.out.println("Both have survived. You have got " + resultOfEnemyAttack + " health left.");
         }
     }
 
@@ -284,11 +287,14 @@ public class UserInterface {
            startGame();
            return;
        } else if (adventure.getPlayer().getHealth() <= 0) {
-            System.out.println("Game over, you played well..");
-            System.out.println("1..");
-            System.out.println("2...");
-            System.out.println("3...");
+            System.out.println("__   __                                 _                _ \n" +
+                    "\\ \\ / /__  _   _    __ _ _ __ ___    __| | ___  __ _  __| |\n" +
+                    " \\ V / _ \\| | | |  / _` | '__/ _ \\  / _` |/ _ \\/ _` |/ _` |\n" +
+                    "  | | (_) | |_| | | (_| | | |  __/ | (_| |  __/ (_| | (_| |\n" +
+                    "  |_|\\___/ \\__,_|  \\__,_|_|  \\___|  \\__,_|\\___|\\__,_|\\__,_|");
+
             System.out.println("We will sent you back, to the main menu...");
+            System.out.println("*********************************************************");
             startGame();
         }
 
