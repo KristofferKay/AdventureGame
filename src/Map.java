@@ -66,6 +66,8 @@ public class Map {
                 "Looks like you are in trouble. Right after you enter the room you got attacked by a bunch of skeletons," +
                 "armoured with rusty but sharp swords. Fight if you can or run - the room has two doors: one north and one south.",
                 "Room with skeletons.");
+        room6.addEnemy(new Enemy("Skeleton-knight","A skeletion wearing a knights helmet",room6,15, new MeleeWeapon("Rusty Sword","A worn rusty old sword..",100,15)),
+                new Enemy("Skeleton Mage","A skeleton holding what seems to be a grimoire, you sense mana radiating from the book",room6,22,new MeleeWeapon("Fireball","The grimoire contains fireball spells",100,30)));
 
         room7 = new Room("Room 7",
                 "It looks like a hall for big gatherings, as it has a tribune and many " +
@@ -78,6 +80,7 @@ public class Map {
                 "The dragon is obviously not in a friendly mood. You can escape  through a decorated door leading west, and a wooden door towards east. There is also a large " +
                 "metal gate in the northern side of the room, but it has a lock on it.",
                 "Room with a dragon and a chest.");
+        room8.addEnemy(new Enemy("Mighty Dragon","A giant dragon exhaling flames, looks like its guarding a chest",room8,1100,new MeleeWeapon("Fire Breath","A huge roar of fire, Burning everything in its path..",25,3000000)));
 
         room9 = new Room("Room 9",
                 "It is a very dark room, you literally cannot see anything. But after you lit up a match it gets possible to notice a door in the northerm" +
