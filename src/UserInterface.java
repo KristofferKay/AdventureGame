@@ -264,6 +264,7 @@ public class UserInterface {
         //String damagedOrDead = resultOfAttack.split(" ")[1];
         if(resultOfAttack.equals("dead")){
             System.out.printf(enemyName + " is dead.\n");
+            gameOver();
         }else{
             System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
             System.out.printf("%s: You will regret it!\n", enemyName);
@@ -276,6 +277,22 @@ public class UserInterface {
         }
     }
 
+    public void gameOver(){
+        if (adventure.getPlayer().getCurrentRoom().getName().contains("Room 5") && adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()){
+           System.out.println("Game over, you played well..");
+           System.out.println("We will sent you back, to the main menu...");
+           startGame();
+           return;
+       } else if (adventure.getPlayer().getHealth() <= 0) {
+            System.out.println("Game over, you played well..");
+            System.out.println("1..");
+            System.out.println("2...");
+            System.out.println("3...");
+            System.out.println("We will sent you back, to the main menu...");
+            startGame();
+        }
+
+    }
 
     public void PlaySoundMethod() {
         String lydfilSti = "introsound.wav";
