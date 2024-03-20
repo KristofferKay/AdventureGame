@@ -38,6 +38,9 @@ public class Room {
     public void addEnemy(Enemy ... enemy){
         enemiesArrayList.addAll(Arrays.asList(enemy));
     }
+    public void removeEnemy(Enemy enemy) {
+        enemiesArrayList.remove(enemy);
+    }
 
     public ArrayList<Enemy> getEnemiesArrayList() {
         return enemiesArrayList;
