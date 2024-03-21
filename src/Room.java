@@ -11,7 +11,6 @@ public class Room {
     private Room east;
     private Room west;
     private Room south;
-    private Enemy enemy;
     private ArrayList<Item> roomItems = new ArrayList<>();
     private ArrayList<Enemy> enemiesArrayList = new ArrayList<>();
 
@@ -31,7 +30,6 @@ public class Room {
             return getLongDescription();
         }
     }
-
 
     public void addItem(Item ... items){
         roomItems.addAll(Arrays.asList(items)); //adds all the items to inventory
@@ -62,32 +60,13 @@ public class Room {
         roomItems.remove(item);
         return item;    }
 
-    public ArrayList<Item> getAllItems(){
-        return roomItems;
-    }
 
     public String getName() {
         return name;
     }
 
-    public Enemy getEnemy() {
-        return enemy;
-    }
-
-    public Enemy setEnemy(Enemy enemy){
-        return enemy;
-    }
-
-    public boolean hasBeenThere() {
-        return beenThere;
-    }
-
     public void setBeenThere(boolean beenThere) {
         this.beenThere = beenThere;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getLongDescription() {
@@ -110,10 +89,6 @@ public class Room {
         return description;
     }
 
-    public void setLongDescription(String longDescription) {
-        this.longDescription = longDescription;
-    }
-
     public String getShortDescription() {
         String description = shortDescription;
         if(!roomItems.isEmpty()){
@@ -126,9 +101,6 @@ public class Room {
         return description;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
 
     public Room getNorth() {
         return north;
@@ -170,7 +142,7 @@ public class Room {
                 return enemy;
             }
         }
-        return enemy;
+        return null;
     }
 
 }

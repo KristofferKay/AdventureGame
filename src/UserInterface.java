@@ -1,12 +1,7 @@
 import items.Item;
-import items.weapons.MeleeWeapon;
-import items.weapons.RangedWeapon;
 import items.weapons.Weapon;
-
 import java.util.List;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class UserInterface {
     Scanner scanner = new Scanner(System.in);
