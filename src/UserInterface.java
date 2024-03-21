@@ -265,32 +265,35 @@ public class UserInterface {
     }
 
     public void attackEnemy(Enemy enemy){
-        String enemyName = enemy.getEnemyName();
-        System.out.printf("%s: How dare you attack me!..\n", enemyName);
         String resultOfAttack = adventure.attack(enemy);
+        String enemyName = enemy.getEnemyName();
+        System.out.println("You attacked " + enemyName + " with " + adventure.getPlayer().getCurrentWeapon().getDamagePoints() + " damage");
+        System.out.printf("%s says: How dare you attack me!..\n", enemyName);
+        System.out.printf("%s attacked you with %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
+
         //String damagedOrDead = resultOfAttack.split(" ")[1];
         if(resultOfAttack.equals("dead")){
             System.out.printf(enemyName + " is dead.\n");
             gameOver();
         }else{
-            System.out.printf("%s got %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
-            System.out.printf("%s: You will regret doing that!\n", enemyName);
+//            System.out.printf("%s attacked you with %s damage.\n%s has %d health left.\n", enemyName, resultOfAttack, enemyName, enemy.getEnemyHealth());
+            System.out.printf("%s says: You will regret doing that!\n", enemyName);
             String resultOfEnemyAttack = adventure.enemyAttacks(enemy, adventure.getPlayer());
             if (resultOfEnemyAttack.equals("dead")) {
                 System.out.printf("%s killed you. \n", enemyName);
                 return;
             }
-            System.out.println("Both have survived. You have got " + resultOfEnemyAttack + " health left.");
+            System.out.println("Both have survived. You have got " + adventure.getPlayer().getHealth() + " health left.");
         }
     }
 
     public void gameOver(){
-        if (adventure.getPlayer().getCurrentRoom().getName().contains("Room 5") && adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()){
-           System.out.println("Game over, you played well..");
-           System.out.println("We will sent you back, to the main menu...");
-           startGame();
-           return;
-       } else if (adventure.getPlayer().getHealth() <= 0) {
+        if (adventure.getPlayer().getCurrentRoom().getName().equals("Room 5") && adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()){
+            System.out.println("Game over, you played well..");
+            System.out.println("We will sent you back, to the main menu...");
+            startGame();
+            return;
+        } else if (adventure.getPlayer().getHealth() <= 0) {
             System.out.println("__   __                                 _                _ \n" +
                     "\\ \\ / /__  _   _    __ _ _ __ ___    __| | ___  __ _  __| |\n" +
                     " \\ V / _ \\| | | |  / _` | '__/ _ \\  / _` |/ _ \\/ _` |/ _` |\n" +
@@ -301,7 +304,6 @@ public class UserInterface {
             System.out.println("*********************************************************");
             startGame();
         }
-
     }
 
     public void PlaySoundMethod() {
