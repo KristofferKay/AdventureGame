@@ -282,7 +282,6 @@ public class UserInterface {
             System.out.println("We will sent you back, to the main menu...");
 
             adventure = new Adventure();
-
             intro();
             startGame();
             return;
@@ -295,9 +294,7 @@ public class UserInterface {
 
             System.out.println("We will sent you back, to the main menu...");
             System.out.println("*********************************************************");
-            // Reset the game state
             adventure = new Adventure();
-
             intro();
             startGame();
         }
