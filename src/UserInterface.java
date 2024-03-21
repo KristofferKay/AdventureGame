@@ -282,7 +282,6 @@ public class UserInterface {
             System.out.println("We will sent you back, to the main menu...");
 
             adventure = new Adventure();
-            intro();
             startGame();
             return;
         } else if (adventure.getPlayer().getHealth() <= 0) {
@@ -295,7 +294,6 @@ public class UserInterface {
             System.out.println("We will sent you back, to the main menu...");
             System.out.println("*********************************************************");
             adventure = new Adventure();
-            intro();
             startGame();
         }
 
