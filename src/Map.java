@@ -23,7 +23,7 @@ public class Map {
         room1 = new Room("Room 1",
                 "The room looks quite empty and dark. It has two doors: one leads to the east, another - to the south. ",
                 "Empty room.");
-        room1.addItem(new MeleeWeapon("sword","sharp sword",100, 17));
+        room1.addItem(new MeleeWeapon("Sword","sharp sword",100, 17));
         room1.addItem(new RangedWeapon("cross-bow","Worn Cross-Bow",10, 7));
 
         room2 = new Room("Room 2",
@@ -77,7 +77,7 @@ public class Map {
                 "wooden chairs. You notice an old man, sitting quietly in the corner." +
                 "There is a passage going north, and a nicely decorated room on the east side of the hall.",
                 "Big hall room.");
-        room7.addEnemy(new Enemy("old-man", "an evil old mage, he seems to be the one controlling the skeletons, You notice a glowing sword behind him right as he charges towards you!", room7, 1, new MeleeWeapon("holy sword","A powerful holy sword, you can tell without a doubt this sword belonged to the King of this castle..", 100, 999999)));
+        room7.addEnemy(new Enemy("old-man", "an evil old mage, he seems to be the one controlling the skeletons, You notice a glowing sword behind him right as he charges towards you!", room7, 1, new MeleeWeapon("holy-sword","A powerful holy sword, you can tell without a doubt this sword belonged to the King of this castle..", 100, 999999)));
 
         room8 = new Room("Room 8",
                 "It's hot in here! thanks to a dragon, which sits on a huge chest and exhales fire. " +
