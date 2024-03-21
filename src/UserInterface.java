@@ -57,9 +57,10 @@ public class UserInterface {
                 "/_/    \\_\\__,_| \\_/ \\___|_| |_|\\__|\\__,_|_|  \\___|\\_____|\\__,_|_| |_| |_|\\___|\n" +
                 "                                                                              ");
         System.out.println("\033[1mWelcome to the adventure game!\033[0m");
-        System.out.println("You’re a young adventurer finding yourself in front of an abandoned castle in a far away country from home.\n" +
+        System.out.println("Youre a young adventurer finding yourself in front of an abandoned castle in a far away country from home.\n" +
                 " You decide to enter because you want to uncover the mysteries of the castle \n" +
                 " and perhaps find valuable loot for your adventures.");
+        System.out.println("");
         System.out.println("To start the game, write one of the following: north, south, west, east.");
         System.out.println("Type help to get a list of commands");
         System.out.println("*************************************");
@@ -272,6 +273,7 @@ public class UserInterface {
             String resultOfEnemyAttack = adventure.enemyAttacks(enemy, adventure.getPlayer());
             if (resultOfEnemyAttack.equals("dead")) {
                 System.out.printf("%s killed you. \n", enemyName);
+                gameOver();
                 return;
             }
             System.out.println("Both have survived. You have got " + adventure.getPlayer().getHealth() + " health left.");
