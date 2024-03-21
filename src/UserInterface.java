@@ -38,6 +38,7 @@ public class UserInterface {
                 case "attack", "att" -> attack(splitUserInput);
                 default -> System.out.println("Invalid command. Try again");
             }
+            gameOver();
         }
     }
 
@@ -276,9 +277,11 @@ public class UserInterface {
     }
 
     public void gameOver() {
-        if (adventure.getPlayer().getCurrentRoom().getName().equals("Room 5") && adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()) {
+        if (adventure.getPlayer().getCurrentRoom().getName().contains("Room 5") && adventure.getPlayer().getCurrentRoom().getEnemiesArrayList().isEmpty()) {
             System.out.println("Game over, you played well..");
             System.out.println("We will sent you back, to the main menu...");
+
+
             startGame();
             return;
         } else if (adventure.getPlayer().getHealth() <= 0) {
@@ -291,6 +294,8 @@ public class UserInterface {
             System.out.println("We will sent you back, to the main menu...");
             System.out.println("*********************************************************");
             startGame();
+        }else {
+
         }
     }
 
