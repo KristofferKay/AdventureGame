@@ -64,10 +64,6 @@ public class Adventure {
         return player.attack(enemy);
     }
 
-//    public String attack(){
-//        return player.attack();
-//    }
-
     public String isAttackPossible(){
         return player.isAttackPossible();
     }

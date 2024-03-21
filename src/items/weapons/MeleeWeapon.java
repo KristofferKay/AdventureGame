@@ -13,7 +13,7 @@ public class MeleeWeapon extends Weapon{
 
     @Override
     public String useWeapon() {
-        return "melee weapon";
+        return "You have used a melee weapon.";
     }
 
 
