@@ -51,8 +51,8 @@ public class Map {
 
 
 
-        room3.addEnemy(new Enemy("Enemy3", "A giant monster with a axe", room3, 25, new MeleeWeapon("Axe","A Giant axe. Might be too heavy for one hand..", 100, 25)),
-                new Enemy("Enemy4", "A giant monster with a axe", room3, 25, new MeleeWeapon("Axe2","A Giant axe. Might be too heavy for one hand..", 100, 25)));
+        room3.addEnemy(new Enemy("Giant-Troll", "A giant monster with a axe", room3, 40, new MeleeWeapon("Axe","A Giant axe. Might be too heavy for one hand..", 100, 19)),
+                new Enemy("Undead-Dwarf", "A small, well geared dwarf", room3, 50, new MeleeWeapon("Small sword","A small sword. clearly made for a dwarf..", 100, 12)));
 
         room4 = new Room("Room 4",
                 "Seems like you entered the library. There are lots of books on the book shelves. But there is one small book which draws your attention." +
