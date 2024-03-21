@@ -281,7 +281,9 @@ public class UserInterface {
             System.out.println("Game over, you played well..");
             System.out.println("We will sent you back, to the main menu...");
 
+            adventure = new Adventure();
 
+            intro();
             startGame();
             return;
         } else if (adventure.getPlayer().getHealth() <= 0) {
@@ -293,10 +295,14 @@ public class UserInterface {
 
             System.out.println("We will sent you back, to the main menu...");
             System.out.println("*********************************************************");
-            startGame();
-        }else {
+            // Reset the game state
+            adventure = new Adventure();
 
+            intro();
+            startGame();
         }
+
+
     }
 
     public void PlaySoundMethod() {
