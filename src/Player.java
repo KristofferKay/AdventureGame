@@ -173,26 +173,26 @@ public class Player {
     }
 
 
-    public String attack(String enemyName){
-        Enemy enemyToAttack = currentRoom.findEnemy(enemyName);
+    public String attack(Enemy enemyToAttack){
+//        Enemy enemyToAttack = currentRoom.findEnemy(enemyName);
         int enemyHealth = enemyToAttack.getEnemyHealth();
         enemyToAttack.setEnemyHealth(enemyHealth - currentWeapon.getDamagePoints());
         if(enemyToAttack.getEnemyHealth() > 0){
-            return enemyName + " " + currentWeapon.getDamagePoints();
+            return String.valueOf(currentWeapon.getDamagePoints());
         }else{
             enemyToAttack.die();
-            return enemyName + " dead";
+            return "dead";
         }
     }
 
-    public String attack(){ //attack method when player does not write the name of an enemy
-        ArrayList<Enemy> enemies = currentRoom.getEnemiesArrayList();
-        if(!enemies.isEmpty()){ //if there are enemies in the room
-            return attack(enemies.get(0).getEnemyName()); //attack the first one
-        }else{
-            return attackAir(); //else attack empty air
-        }
-    }
+//    public String attack(){ //attack method when player does not write the name of an enemy
+//        ArrayList<Enemy> enemies = currentRoom.getEnemiesArrayList();
+//        if(!enemies.isEmpty()){ //if there are enemies in the room
+//            return attack(enemies.get(0).getEnemyName()); //attack the first one
+//        }else{
+//            return attackAir(); //else attack empty air
+//        }
+//    }
 
     public String isAttackPossible(){
         if (currentWeapon != null) {
