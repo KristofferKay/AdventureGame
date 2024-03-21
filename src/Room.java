@@ -119,7 +119,8 @@ public class Room {
         if(!roomItems.isEmpty()){
             description += "\nItems in the room: \n";
             for(Item item : roomItems){
-                description += item.getShortName() + "\n";
+                description += item.getShortName() + " - ";
+                description += item.getLongName() + "\n";
             }
         }
         return description;

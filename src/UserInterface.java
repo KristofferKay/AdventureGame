@@ -83,15 +83,19 @@ public class UserInterface {
 
     public void helpMsg(){
         System.out.println("\033[1mHere's a list of commands\033[0m:\n" +
-                "Commands:                              Description of command\n" +
+                "Commands:                              Description of command:\n" +
                 "* north/south/east/west or n/s/e/w     - Move to a room in given direction \n" +
-                "* exit                                 - Exit out of the game \n" +
                 "* look                                 - Look around your current room\n" +
                 "* help                                 - Get a list of commands\n" +
                 "* inventory/inv                        - See the list of items in your inventory\n" +
                 "* take                                 - Take the item\n" +
                 "* drop                                 - Drop the item\n" +
+                "* equip                                - Equip a weapon to attack a enemy\n" +
                 "* health                               - See your current health\n" +
+                "* attack                               - If you see a enemy, you can attack them\n" +
+                "* eat                                  - Eat a food in your inventory, it might kill you or give you more health..\n" +
+                "* drink                                - Drink a liquid in your inventory, it might kill you or give you more health..\n" +
+                "* exit                                 - Exit out of the game \n" +
                 "\033[1m**********************************************************************************\033[0m");
     }
 
