@@ -32,7 +32,7 @@ public class UserInterface {
                 case "inventory", "inv" -> inventory();
                 case "take", "t" -> takeItem(splitUserInput);
                 case "drop", "d" -> dropItem(splitUserInput);
-                case "health", "h" -> health();
+                case "health", "h","hp" -> health();
                 case "eat", "drink" -> consume(splitUserInput);
                 case "equip", "eq" -> equip(splitUserInput);
                 case "attack", "att" -> attack(splitUserInput);

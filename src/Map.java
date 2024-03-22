@@ -35,7 +35,7 @@ public class Map {
                 "It is a nicely decorated room with a big dining table in the middle, full of food. You can go out of the room through a big wooden door east" +
                 "and through a metal door west.",
                 "Room with a dining table.");
-        room2.addItem(new Item("knife", "A kitchen knife, small but quite sharp."),
+        room2.addItem(new Food("knife", "A kitchen knife, small but quite sharp. Please dont eat it",-100),
                 new Food("cheese", "An old stinky piece of cheese.",1),
                 new Liquid("water", "A bottle filled with water.",5),
                 new Food("apple", "A fresh delicious apple.",10),
@@ -82,14 +82,14 @@ public class Map {
                 "wooden chairs. You notice an old man, sitting quietly in the corner." +
                 "There is a passage going north, and a nicely decorated room on the east side of the hall.",
                 "Big hall room.");
-        room7.addEnemy(new Enemy(ANSI_RED+"old-man"+ANSI_RESET, "an evil old mage, he seems to be the one controlling the skeletons, You notice a glowing sword behind him right as he charges towards you!", room7, 1, new MeleeWeapon("holy-sword","A powerful holy sword, you can tell without a doubt this sword belonged to the King of this castle..", 100, 999999)));
+        room7.addEnemy(new Enemy("old-man", "an evil old mage, he seems to be the one controlling the skeletons, You notice a glowing sword behind him right as he charges towards you!", room7, 1, new MeleeWeapon("holy-sword","A powerful holy sword, you can tell without a doubt this sword belonged to the King of this castle..", 100, 999999)));
 
         room8 = new Room("Room 8",
                 "It's hot in here! thanks to a dragon, which sits on a huge chest and exhales fire. " +
                 "The dragon is obviously not in a friendly mood. There is no way you can defeat it without a powerful weapon. You can escape  through a decorated door leading west, and a wooden door towards east. There is also a large " +
                 "metal gate in the northern side of the room, but it has a lock on it.",
                 "Room with a dragon and a chest.");
-        room8.addEnemy(new Enemy(ANSI_RED+"mighty-dragon"+ANSI_RESET,"A giant dragon exhaling flames, looks like its guarding a chest",room8,1100,new MeleeWeapon("fire-breath","A huge burst of fire, Burning everything in its path..",25,3000000)));
+        room8.addEnemy(new Enemy("dragon","A giant dragon exhaling flames, looks like its guarding a chest",room8,1100,new MeleeWeapon("fire-breath","A huge burst of fire, Burning everything in its path..",25,3000000)));
 
         room9 = new Room("Room 9",
                 "It is a very dark room, you literally cannot see anything. But after you lit up a match it gets possible to notice a door in the northern" +
